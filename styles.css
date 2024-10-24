@@ -11,13 +11,22 @@
   
   .joeltechlogo{
       background: #00B3CF;
-  background: linear-gradient(to left, #00B3CF 0%, #7C00CF 100%);
+      background: linear-gradient(to left, #0004fd 0%, #4fe3ee 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family:arial;
   font-size:6vw
   }
-  
+
+  .jtprod{
+    background: #00B3CF;
+background: linear-gradient(to left, #0004fd 0%, #4fe3ee 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+font-family:arial;
+font-size:6vw
+}
+
   #cortina{
     align-items: center;
     display: flex;
@@ -43,19 +52,19 @@
   }
   
   #cortina span:nth-child(1){
-    background: #ffffff;
+    background: #140088;
     transition-delay: 0.2s;
     transform: rotate(-90deg);
   }
   
   #cortina span:nth-child(2){
-    background: #49DCE5;
+    background: #008eec;
     transition-delay: 0.1s;
     transform: rotate(-90deg);
   }
   
   #cortina span:nth-child(3){
-    background: #3f48cc;
+    background: #ffffff;
     transition-delay: 0s;
     transform: rotate(-90deg);
   }
@@ -84,6 +93,14 @@
     margin-left: auto;
     margin-right: auto;
     width: 40%;
+
+  }
+
+  .logopng {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
 
   }
 
@@ -140,31 +157,31 @@
 
   h1{
     text-align:center;
-    color:white;
+    color:rgb(255, 255, 255);
     font-family:arial
   }
 
   h2{
     text-align:center;
-    color:white;
+    color:rgb(255, 255, 255);
     font-family:arial
   }
   
   h3{
     text-align:center;
-    color:white;
+    color:rgb(0, 0, 0);
     font-family:arial
   }
   
   h4{
     text-align:center;
-    color:white;
+    color:rgb(252, 252, 252);
     font-family:arial
   }
   
   p{
     text-align:center;
-    color:white;
+    color:rgb(255, 255, 255);
     font-family:arial
   }
   
