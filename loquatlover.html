@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loquat Pickin' Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Megrim&family=Cinzel+Decorative:wght@400;700&family=Old+Standard+TT&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            font-family: 'exile', cursive; 
+            user-select: none;
+            background-image: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+            box-sizing: border-box;
+            border: 15px solid; 
+            border-color: #ff0000;
+            animation: crazy-border 1s infinite; 
+            padding: 20px;
+            position: relative;
+        }
+
+        @keyframes crazy-border {
+            0% { border-color: #ff0000; }
+            10% { border-color: #ff8c00; }
+            20% { border-color: #ffff00; }
+            30% { border-color: #00ff00; }
+            40% { border-color: #0000ff; }
+            50% { border-color: #4b0082; }
+            60% { border-color: #ee82ee; }
+            70% { border-color: #ff0000; }
+            80% { border-color: #ff8c00; }
+            90% { border-color: #ffff00; }
+            100% { border-color: #ff0000; }
+        }
+
+        .container {
+            text-align: center;
+            background-color: #f5f5dc;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
+            max-width: 95%; 
+            width: 600px; 
+            margin: 0 auto;
+            border: 4px solid #ddd;
+            position: relative;
+            background-size: cover;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ff0000;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-family: 'times new roman', cursive;
+            animation: rainbow-text 2s infinite; /* apply animation to title */
+            display: inline-block; /* for the animation DONT REMOVE AHH */
+        }
+        @keyframes rainbow-text {
+             0% { color: #ff0000; }
+            10% { color: #ff8c00; }
+            20% { color: #ffff00; }
+            30% { color: #00ff00; }
+            40% { color: #0000ff; }
+            50% { color: #4b0082; }
+            60% { color: #ee82ee; }
+            70% { color: #ff0000; }
+            80% { color: #ff8c00; }
+            90% { color: #ffff00; }
+            100% { color: #ff0000; }
+        }
+        @media (min-width: 640px){
+           h1{
+             font-size: 3rem;
+           }
+        }
+
+        #loquat-img {
+            width: 200px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            margin-bottom: 1.5rem;
+            font-size: 10rem; /* for emoji */
+            color: #FFDAB9;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4); /* shadow */
+            position: relative;
+            margin: 0 auto 1rem auto;
+            animation: pulse .2s infinite alternate; /* pulse animation */
+        }
+        @keyframes pulse {
+          from {
+            transform: scale(1);
+          }
+          to {
+            transform: scale(1.1);
+          }
+        }
+
+        #loquat-img:hover {
+            transform: scale(1.2);
+        }
+
+        #loquat-img:active {
+            transform: scale(0.8);
+        }
+
+        #score-display {
+            font-size: 1.5rem; 
+            margin-bottom: 2rem;
+            color: #553300;
+            padding: 12px;
+            background-color: #f8f0e3;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 2px solid #eee;
+            font-family: 'times new roman', cursive; 
+        }
+         @media (min-width: 640px){
+            #score-display{
+               font-size: 2rem;
+            }
+         }
+
+        #message-box {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: #222;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            min-height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: 'times new roman', cursive; /* w font ahh */
+        }
+        @media (min-width: 640px){
+             #message-box {
+                font-size: 1.5rem;
+            }
+        }
+
+        #upgrade-button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #8b4513;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 0.5rem;
+            font-family: 'times new roman', cursive;
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15); /* shadow */
+            width: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #upgrade-button:hover {
+            background-color: #652d0b;
+        }
+
+        #upgrade-button:disabled {
+            background-color: #a0522d;
+            cursor: not-allowed;
+            opacity: 0.7;
+            box-shadow: none;
+        }
+
+        #reset-button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #dc143c;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+            font-family: 'times new roman', cursive;
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+            width: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #reset-button:hover {
+            background-color: #b22222;
+        }
+
+    </style>
+    <script src="https://unpkg.com/tone"></script>
+    <script>
+      // synthesizer ahh
+      const synth = new Tone.Synth().toDestination();
+
+      //play queer tone
+      function playTone() {
+          const now = Tone.now();
+          const note = ['C4', 'D4', 'E4', 'G4', 'A4'][Math.floor(Math.random() * 5)];
+          synth.triggerAttackRelease(note, '8n', now + 0.1);
+      }
+
+      setInterval(playTone, 200);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Pick Loquats!</h1>
+        <div id="loquat-img">loquat</div>
+        <div id="score-display">score: 0</div>
+        <div id="message-box">pick dem loquats!</div>
+        <button id="upgrade-button">upgrade ts pickaxe (100)</button>
+        <button id="reset-button">reset ts</button>
+    </div>
+
+    <script>
+        const loquatImg = document.getElementById('loquat-img');
+        const scoreDisplay = document.getElementById('score-display');
+        const messageBox = document.getElementById('message-box');
+        const upgradeButton = document.getElementById('upgrade-button');
+        const resetButton = document.getElementById('reset-button');
+        const body = document.querySelector('body');
+
+        // Set up
+        let score = 0;
+        let pickPower = 1;
+        let upgradeCost = 100;
+        let isUpgraded = false;
+        let clickCount = 0;
+
+        //  messages
+        const messages = [
+            "Pickin' my brains away!",
+            "Loquat power!",
+            "Marcus garvey would be proud!",
+            "Pick dem loquats!",
+            "Noice pickin'!",
+            "You're a loquat legend!",
+            "Noice one!",
+            "Keep it up brody!",
+            "Who did the yound people pick as they leader?",
+            "turn evtest off 😭",
+            "you done picked enough",
+        ];
+
+        //  update  score display
+        function updateScoreDisplay() {
+            scoreDisplay.textContent = `Score: ${score}`;
+        }
+
+        //display messages
+        function showMessage(message) {
+            messageBox.textContent = message;
+        }
+
+        // listener for clickin' on the loquat, gettin' that score up.
+        loquatImg.addEventListener('click', () => {
+            score += pickPower;
+            updateScoreDisplay();
+            clickCount++;
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            showMessage(randomMessage);
+            updateBorderSpeed();
+            playTone();
+        });
+
+        //upgrade button
+        upgradeButton.addEventListener('click', () => {
+            if (score >= upgradeCost) {
+                score -= upgradeCost;
+                pickPower += 10;
+                updateScoreDisplay();
+                upgradeCost = Math.floor(upgradeCost * 1.5);
+                upgradeButton.textContent = `Upgrade Pickaxe (${upgradeCost})`;
+                showMessage("You upgraded your pickaxe!  Now you pickin' faster!");
+                updateBorderSpeed();
+                playTone();
+            } else {
+                showMessage("Not enough loquats, fam!  Keep pickin'!");
+            }
+        });
+
+        //  reset button
+        resetButton.addEventListener('click', () => {
+            score = 0;
+            pickPower = 1;
+            upgradeCost = 100;
+            isUpgraded = false;
+            clickCount = 0;
+            upgradeButton.disabled = false;
+            upgradeButton.textContent = `Upgrade Pickaxe (${upgradeCost})`;
+            updateScoreDisplay();
+            showMessage("Game reset!  Let's get back to pickin'!");
+            updateBorderSpeed();
+            playTone();
+        });
+
+        // first message
+        showMessage("Welcome to tha Loquat Pickin' Game!");
+
+        function updateBorderSpeed() {
+            let speed = 2000;
+
+            if (score > 5) {
+                speed = 1000;
+            }
+             if (score > 10) {
+                speed = 500;
+            }
+            if (score > 20) {
+                speed = 250;
+            }
+            if (score > 30) {
+                speed = 125;
+            }
+
+            body.style.animation = `crazy-border ${speed}ms infinite`;
+        }
+    </script>
+</body>
+</html>
