@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roach Farmer</title>
+    <!-- Tailwind Bruh -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Thi is the beautiful Lora Font! -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Bru CSS */
+        body {
+            font-family: 'Lora', serif;
+            background-color: #333;
+            color: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden; /* prevents body scroll */
+            transition: background-color 0.5s ease-in-out, filter 0.5s ease-in-out; /* Smooth transition for frenzy */
+        }
+
+        /* FRENZY */
+        body.frenzy-active {
+            animation: rainbowBackground 3s linear infinite;
+            filter: saturate(900%) hue-rotate(360deg);
+        }
+
+        @keyframes rainbowBackground {
+            0% { background-color: #333; }
+            10% { background-color: #4CAF50; }
+            20% { background-color: #2196F3; } 
+            30% { background-color: #9C27B0; } 
+            40% { background-color: #FFC107; } 
+            50% { background-color: #F44336; } 
+            60% { background-color: #FF5722; } 
+            70% { background-color: #00BCD4; } 
+            80% { background-color: #E91E63; } 
+            90% { background-color: #607D8B; } 
+            100% { background-color: #333; } /* normal */
+        }
+
+
+        #game-wrapper {
+            display: flex;
+            background-color: #2a2a2a;
+            border: 2px solid #555;
+            border-radius: 12px; /* rounded corners */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            max-width: 1200px;
+            width: 95%; 
+            max-height: 90vh;
+            overflow: hidden;
+        }
+
+        #game-container {
+            flex: 3; /* Take more space on the left */
+            position: relative;
+            background-color: #3a3a3a;
+            border-right: 2px solid #555;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 600px; /* minimum height for game area */
+            border-radius: 12px 0 0 12px; /* rounded corners only on left */
+        }
+
+        #roach-display {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #e0e0e0;
+            margin-bottom: 5px; /* Reduced margin */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            z-index: 10; /* Ensure it stays above roaches */
+        }
+
+        .rate-display {
+            font-size: 0.9em;
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+
+        #roach-area {
+            flex-grow: 1; /* Allows roach area to take available space */
+            width: 100%;
+            position: relative;
+            background-color: #444; /* Slightly lighter background for the roach movement area */
+            border: 1px solid #555;
+            border-radius: 8px;
+            overflow: hidden; /* Important for bouncing roaches */
+            min-height: 300px; /* Ensure a minimum height for roach movement */
+            margin-top: 10px; /* Space from rate displays */
+        }
+
+        .spawner {
+            position: absolute; /* Allow specific positioning within roach-area */
+            font-size: 3em; /* Emoji size */
+            cursor: pointer;
+            transition: transform 0.1s ease-out;
+            filter: grayscale(80%); /* Muted appearance */
+            z-index: 5; /* Ensure spawners are above general roaches */
+        }
+
+        .spawner:hover {
+            transform: scale(1.1);
+            filter: grayscale(0%); /* Slightly less muted on hover */
+        }
+
+        .spawner.fade-out {
+            animation: fadeOut 0.5s forwards; /* 0.5 seconds fade-out animation */
+            pointer-events: none; /* Disable clicks during fade-out */
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; transform: scale(1); }
+            to { opacity: 0; transform: scale(0.8); }
+        }
+
+        .roach {
+            position: absolute;
+            font-size: 2em; /* Roach emoji size */
+            cursor: pointer;
+            user-select: none;
+            transition: opacity 0.1s ease-out;
+            z-index: 1; /* Below spawners */
+        }
+
+        .roach:hover {
+            transform: scale(1.1);
+        }
+
+        #upgrades-container {
+            flex: 1; /* Take less space on the right */
+            background-color: #222; /* Darker background for upgrades */
+            padding: 20px;
+            border-radius: 0 12px 12px 0; /* Rounded corners only on the right */
+            overflow-y: auto; /* Enable scrolling for upgrades */
+            max-height: 86vh; /* Ensure it fits within the wrapper height */
+        }
+
+        .upgrade-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #f0f0f0;
+            border-bottom: 1px solid #444;
+            padding-bottom: 5px;
+        }
+
+        .upgrade-item {
+            background-color: #333;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            transition: background-color 0.2s ease;
+        }
+
+        .upgrade-item:hover {
+            background-color: #3a3a3a;
+        }
+
+        .upgrade-button {
+            background-color: #555;
+            color: #eee;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .upgrade-button:hover {
+            background-color: #666;
+            transform: translateY(-1px);
+        }
+
+        .upgrade-button:disabled {
+            background-color: #444;
+            color: #999;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        @media (max-width: 768px) {
+            #game-wrapper {
+                flex-direction: column;
+                max-height: unset; /* Remove max-height for mobile */
+                width: 98%;
+            }
+            #game-container, #upgrades-container {
+                border-right: none;
+                border-bottom: 2px solid #555; /* Separator for vertical layout */
+                border-radius: 12px 12px 0 0; /* Top rounded for game, bottom for upgrades */
+            }
+            #upgrades-container {
+                border-radius: 0 0 12px 12px;
+            }
+            #roach-area {
+                min-height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="game-wrapper" class="p-4">
+        <div id="game-container" class="flex-grow p-4">
+            <div id="roach-display" class="text-center mb-4">Gregors: <span id="roach-count">0</span></div>
+            <div id="click-rate-display" class="text-center rate-display">Roaches Per Click: <span id="click-power">1</span></div>
+            <div id="passive-rate-display" class="text-center rate-display">Roaches Per Second (Passive): <span id="passive-rate">0</span></div>
+            <div id="roach-area" class="w-full flex-grow relative">
+                <!-- bouncing roaches and spawners go here dynamically -->
+            </div>
+        </div>
+
+        <div id="upgrades-container" class="p-4 overflow-y-auto">
+            <h1 class="text-3xl font-bold mb-6 text-center text-gray-200">Gregor Farm</h1>
+
+            <div id="click-upgrades" class="upgrade-section mb-8">
+                <h2 class="text-xl font-bold mb-4 text-gray-300">Click Enhancements 🫵</h2>
+                <div id="click-upgrade-list">
+                    <!-- click upgrades go here dynamically -->
+                </div>
+            </div>
+
+            <div id="passive-upgrades" class="upgrade-section">
+                <h2 class="text-xl font-bold mb-4 text-gray-300">Passive Income 🤑</h2>
+                <div id="passive-upgrade-list">
+                    <!-- passive upgrades go here dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // game state variables
+        let roachCount = 0;
+        let clickValue = 1; // roaches per click
+        let passiveIncomeRate = 0; // roaches per sec
+        const visualRoachCap = 500; // max visible roaches for speed
+
+        // frenzy state variables
+        let isFrenzyActive = false;
+        let frenzyMultiplier = 1;
+        let frenzyTimeoutId = null;
+        let starData = { element: null, x: 0, y: 0, vx: 0, vy: 0, despawnTimer: null };
+
+        // dom elements
+        const roachCountSpan = document.getElementById('roach-count');
+        const clickPowerSpan = document.getElementById('click-power');
+        const passiveRateSpan = document.getElementById('passive-rate');
+        const roachArea = document.getElementById('roach-area');
+        const clickUpgradeList = document.getElementById('click-upgrade-list');
+        const passiveUpgradeList = document.getElementById('passive-upgrade-list');
+
+        // array for visual roaches and their stuff
+        const visualRoaches = []; // only for '🪳' roaches
+
+        // emojis for starting spawners (low value)
+        const initialSpawnerTypes = [
+            { emoji: '📚', value: 1, title: 'A work of a stupid non-Kafka author...', despawnTime: 120000 }, // 2 mins
+            { emoji: '🕰️', value: 1, title: 'like gregor, time never stops...', despawnTime: 120000 },
+            { emoji: '💡', value: 1, title: 'Light illuminates a sea of darknes; woe is I for I will never see the glow of daylight, for I am confined to my rume due to moderate IBS...', despawnTime: 120000 },
+            { emoji: '🗝️', value: 1, title: 'a useless key...', despawnTime: 120000 },
+            { emoji: '♟️', value: 1, title: 'a lost JoeleEch game...', despawnTime: 120000 },
+            { emoji: '🧳', value: 1, title: 'luggage never unpacked...', despawnTime: 120000 },
+            { emoji: '📜', value: 1, title: 'Lost works of Kafka...', despawnTime: 120000 },
+            { emoji: '⚖️', value: 1, title: '200 isnt even fat...', despawnTime: 120000 }
+        ];
+
+        // emojis for random spawners (can be high value)
+        const randomSpawnerTypes = [
+            { emoji: '📚', value: 19, title: 'works of kafka (19x roaches!)', despawnTime: 30000 }, // 30 secs
+            { emoji: '🕰️', value: 2, title: 'time flies by (2x roaches!)', despawnTime: 30000 },
+            { emoji: '💩', value: 12, title: 'a pile of poo (12x roaches!)', despawnTime: 30000 },
+            { emoji: '🗑️', value: 7, title: 'useless trash (7x roaches!)', despawnTime: 20000 }, // short for high value
+            { emoji: '🪨', value: 5, title: 'a heavy rock (5x roaches!)', despawnTime: 25000 },
+            { emoji: '🧱', value: 2, title: 'a broken wall (2x roaches!)', despawnTime: 15000 },
+            { emoji: '🪜', value: 3, title: 'a wobbly ladder (3x roaches!)', despawnTime: 20000 }
+        ];
+
+        // special spawner for frenzy
+        const specialSpawnerType = {
+            emoji: '⭐',
+            value: 0, // no roach value directly but makes frenzy happen
+            title: 'a star of delicious feeding frenzy!',
+            specialEffect: 'frenzy',
+            despawnTime: 5000, // goes away real fast
+            spawnChance: 0.05 // 5% chance instead of normal random stuff
+        };
+
+        // upgrade definitions
+        const clickUpgrades = [
+            { id: 'click1', name: 'improved collection', description: 'roaches per click: +1', cost: 10, effect: () => { clickValue += 1; }, bought: false },
+            { id: 'click2', name: 'grete repeller', description: 'roaches per click: +2', cost: 50, effect: () => { clickValue += 2; }, bought: false },
+            { id: 'click3', name: 'eco-friendly design', description: 'roaches per click: +5', cost: 200, effect: () => { clickValue += 5; }, bought: false },
+            { id: 'click4', name: 'accelerated cognition', description: 'roaches per click: +10', cost: 1000, effect: () => { clickValue += 10; }, bought: false },
+            { id: 'click5', name: 'metamorphic touch', description: 'roaches per click: x2', cost: 5000, effect: () => { clickValue *= 2; }, bought: false }
+        ];
+
+        const passiveUpgrades = [
+            { id: 'passive1', name: 'automated bait', description: 'passive income: +1 roach/sec', cost: 20, effect: () => { passiveIncomeRate += 1; }, bought: false },
+            { id: 'passive2', name: 'subterranean feeder', description: 'passive income: +3 roaches/sec', cost: 100, effect: () => { passiveIncomeRate += 3; }, bought: false },
+            { id: 'passive3', name: 'unseen contaminant', description: 'passive income: +10 roaches/sec', cost: 500, effect: () => { passiveIncomeRate += 10; }, bought: false },
+            { id: 'passive4', name: 'self-replicating dust', description: 'passive income: +50 roaches/sec', cost: 2500, effect: () => { passiveIncomeRate += 50; }, bought: false },
+            { id: 'passive5', name: 'interbreeding swarm', description: 'passive income: x2', cost: 10000, effect: () => { passiveIncomeRate *= 2; }, bought: false },
+            { id: 'passive6', name: 'blessing of kafka', description: 'passive income: x90', cost: 4200000, effect: () => { passiveIncomeRate *= 90; }, bought: false }
+        ];
+
+        // --- game begin ---
+
+        /**
+         * set up the game ui and loops
+         */
+        function initializeGame() {
+            createInitialSpawners(5); // make 5 starting spawners
+            renderUpgrades();
+            updateUI(); // first ui update and button states
+            startPassiveIncomeLoop();
+            startRoachMovementLoop();
+            startRandomSpawnerLoop(); // start the loop for random spawners
+        }
+
+        /**
+         * makes the starting emoji spawners in the roach area
+         * @param {number} count - how many spawners to make
+         */
+        function createInitialSpawners(count) {
+            const roachAreaRect = roachArea.getBoundingClientRect();
+            // spawner size guess for placement
+            const spawnerSize = 60; // around 3em
+
+            for (let i = 0; i < count; i++) {
+                const spawnerData = initialSpawnerTypes[Math.floor(Math.random() * initialSpawnerTypes.length)];
+                const spawner = document.createElement('span');
+                spawner.className = 'spawner';
+                spawner.textContent = spawnerData.emoji;
+                spawner.title = spawnerData.title;
+
+                spawner.addEventListener('click', () => {
+                    roachCount += clickValue * spawnerData.value * frenzyMultiplier; // add tha frenzy
+                    spawner.classList.add('fade-out'); // make ts fade
+                    // remove after animation
+                    setTimeout(() => {
+                        spawner.remove();
+                    }, 500); // match css animation
+                    updateUI(); // update visuals
+                }, { once: true }); // click only once
+
+                // random spot for spawners
+                const startX = Math.random() * (roachAreaRect.width - spawnerSize);
+                const startY = Math.random() * (roachAreaRect.height - spawnerSize);
+
+                spawner.style.left = `${startX}px`;
+                spawner.style.top = `${startY}px`;
+                roachArea.appendChild(spawner);
+
+                // timer to make starting spawners disappear if not clicked
+                setTimeout(() => {
+                    if (spawner.parentNode) { // check if still there
+                        spawner.classList.add('fade-out');
+                        setTimeout(() => { spawner.remove(); }, 500);
+                    }
+                }, spawnerData.despawnTime);
+            }
+        }
+
+        /**
+         * make=s one random object or a star from the spawner types
+         */
+        function spawnRandomObject() {
+            const roachAreaRect = roachArea.getBoundingClientRect();
+            const spawnerSize = 60; // around 3em for emoji
+
+            // need space for spawner
+            if (roachAreaRect.width < spawnerSize || roachAreaRect.height < spawnerSize) return;
+
+            let spawnerInfo;
+            let isSpecialStar = false;
+
+            // decide if we make a special star
+            if (Math.random() < specialSpawnerType.spawnChance && !isFrenzyActive && !starData.element) {
+                // only spawn star if no frenzy and no star now
+                spawnerInfo = specialSpawnerType;
+                isSpecialStar = true;
+            } else {
+                spawnerInfo = randomSpawnerTypes[Math.floor(Math.random() * randomSpawnerTypes.length)];
+            }
+
+            const spawner = document.createElement('span');
+            spawner.className = 'spawner';
+            spawner.textContent = spawnerInfo.emoji;
+            spawner.title = spawnerInfo.title;
+
+            // random spot for spawners
+            const startX = Math.random() * (roachAreaRect.width - spawnerSize);
+            const startY = Math.random() * (roachAreaRect.height - spawnerSize);
+
+            spawner.style.left = `${startX}px`;
+            spawner.style.top = `${startY}px`;
+            roachArea.appendChild(spawner);
+
+            if (isSpecialStar) {
+                // set up star for bouncing
+                const speed = 3; // star moves faster
+                const angle = Math.random() * Math.PI * 2;
+                starData.element = spawner;
+                starData.x = startX;
+                starData.y = startY;
+                starData.vx = Math.cos(angle) * speed;
+                starData.vy = Math.sin(angle) * speed;
+
+                starData.element.addEventListener('click', () => {
+                    activateFrenzy();
+                    clearTimeout(starData.despawnTimer); // stop its timer
+                    starData.element.classList.add('fade-out');
+                    setTimeout(() => {
+                        starData.element.remove();
+                        starData.element = null; // clear ref so new star can spawn
+                    }, 500); // match css animation
+                    updateUI();
+                }, { once: true }); // click only once
+
+                // star disappears fast
+                starData.despawnTimer = setTimeout(() => {
+                    if (starData.element && starData.element.parentNode) { // check if still there
+                        starData.element.classList.add('fade-out');
+                        setTimeout(() => {
+                            starData.element.remove();
+                            starData.element = null; // clear ref
+                        }, 500);
+                    }
+                }, spawnerInfo.despawnTime);
+
+            } else {
+                // regular spawner click and despawn
+                spawner.addEventListener('click', () => {
+                    roachCount += clickValue * spawnerInfo.value * frenzyMultiplier; // add frenzy
+                    spawner.classList.add('fade-out');
+                    setTimeout(() => { spawner.remove(); }, 500);
+                    updateUI();
+                }, { once: true }); // click only once
+
+                // timer for regular spawner if not clicked
+                setTimeout(() => {
+                    if (spawner.parentNode) { // check if still there
+                        spawner.classList.add('fade-out');
+                        setTimeout(() => { spawner.remove(); }, 500);
+                    }
+                }, spawnerInfo.despawnTime);
+            }
+        }
+
+        /**
+         * starts the random spawner loop
+         */
+        function startRandomSpawnerLoop() {
+            setInterval(spawnRandomObject, 5000); // make a new thing every 5 secs
+        }
+
+        /**
+         * shows upgrade buttons based on what's available
+         */
+        function renderUpgrades() {
+            // make click upgrades
+            clickUpgradeList.innerHTML = ''; // clear old stuff
+            clickUpgrades.forEach(upgrade => {
+                if (!upgrade.bought) { // only if not bought yet
+                    const upgradeItem = document.createElement('div');
+                    upgradeItem.className = 'upgrade-item';
+                    upgradeItem.innerHTML = `
+                        <p class="font-bold text-gray-100">${upgrade.name}</p>
+                        <p class="text-sm text-gray-400">${upgrade.description}</p>
+                        <p class="text-sm text-gray-200">cost: ${upgrade.cost} roaches</p>
+                        <button id="buy-${upgrade.id}" class="upgrade-button mt-2">buy</button>
+                    `;
+                    clickUpgradeList.appendChild(upgradeItem);
+
+                    // add listener to button
+                    document.getElementById(`buy-${upgrade.id}`).addEventListener('click', () => {
+                        buyUpgrade(upgrade);
+                    });
+                }
+            });
+
+            // make passive upgrades
+            passiveUpgradeList.innerHTML = ''; // clear old stuff
+            passiveUpgrades.forEach(upgrade => {
+                if (!upgrade.bought) { // only if not bought yet
+                    const upgradeItem = document.createElement('div');
+                    upgradeItem.className = 'upgrade-item';
+                    upgradeItem.innerHTML = `
+                        <p class="font-bold text-gray-100">${upgrade.name}</p>
+                        <p class="text-sm text-gray-400">${upgrade.description}</p>
+                        <p class="text-sm text-gray-200">cost: ${upgrade.cost} roaches</p>
+                        <button id="buy-${upgrade.id}" class="upgrade-button mt-2">buy</button>
+                    `;
+                    passiveUpgradeList.appendChild(upgradeItem);
+
+                    // add listener to button
+                    document.getElementById(`buy-${upgrade.id}`).addEventListener('click', () => {
+                        buyUpgrade(upgrade);
+                    });
+                }
+            });
+            updateUpgradeButtonStates(); // set button on/off state
+        }
+
+        /**
+         * buys an upgrade
+         * @param {object} upgrade - the upgrade to buy
+         */
+        function buyUpgrade(upgrade) {
+            if (roachCount >= upgrade.cost) {
+                roachCount -= upgrade.cost;
+                upgrade.effect(); // do the upgrade thing
+                upgrade.bought = true; // mark as bought
+                updateUI();
+                renderUpgrades(); // remake buttons to hide bought one and update others
+                console.log(`${upgrade.name} bought new clickValue: ${clickValue} passiveRate: ${passiveIncomeRate}`);
+            } else {
+                console.log('not enough roaches to buy this!');
+                // maybe show a msg here later
+            }
+        }
+
+        /**
+         * sets if upgrade buttons are clickable
+         */
+        function updateUpgradeButtonStates() {
+            [...clickUpgrades, ...passiveUpgrades].forEach(upgrade => {
+                const button = document.getElementById(`buy-${upgrade.id}`);
+                if (button) {
+                    button.disabled = roachCount < upgrade.cost;
+                }
+            });
+        }
+
+        /**
+         * makes sure visual roaches match the actual roach count
+         * adds or removes visual roaches up to the cap
+         */
+        function updateVisualRoaches() {
+            const targetVisualRoaches = Math.min(Math.floor(roachCount), visualRoachCap);
+            const currentVisualRoaches = visualRoaches.length;
+
+            const roachSize = 40; // around 2em for roach emoji
+            const roachAreaRect = roachArea.getBoundingClientRect();
+            const minX = 0;
+            const minY = 0;
+            const maxX = roachAreaRect.width - roachSize;
+            const maxY = roachAreaRect.height - roachSize;
+
+            // add roaches if too few
+            while (visualRoaches.length < targetVisualRoaches) {
+                const roach = document.createElement('span');
+                roach.className = 'roach';
+                roach.textContent = '🪳'; // ghe actual gregor used ingame
+                roach.title = 'click me!';
+                roach.addEventListener('click', () => {
+                    roachCount += clickValue * frenzyMultiplier; // add frenzy
+                    updateUI();
+                });
+
+                // random start spot
+                const startX = Math.random() * maxX;
+                const startY = Math.random() * maxY;
+
+                roach.style.left = `${startX}px`;
+                roach.style.top = `${startY}px`;
+
+                // random start speed
+                const speed = 1.5; // base speed
+                const angle = Math.random() * Math.PI * 2; // random angle
+                const velocityX = Math.cos(angle) * speed;
+                const velocityY = Math.sin(angle) * speed;
+
+                const roachData = {
+                    element: roach,
+                    x: startX,
+                    y: startY,
+                    vx: velocityX,
+                    vy: velocityY
+                };
+                visualRoaches.push(roachData);
+                roachArea.appendChild(roach);
+            }
+
+            // remove roaches if too many
+            while (visualRoaches.length > targetVisualRoaches) {
+                // remove a random roach from the list and page
+                const randomIndex = Math.floor(Math.random() * visualRoaches.length);
+                const roachToRemove = visualRoaches.splice(randomIndex, 1)[0];
+                roachToRemove.element.remove();
+            }
+        }
+
+        /**
+         * turns on feeding frenzy
+         */
+        function activateFrenzy() {
+            if (frenzyTimeoutId) {
+                clearTimeout(frenzyTimeoutId); // reset timer if clicked again
+            }
+            isFrenzyActive = true;
+            frenzyMultiplier = 2;
+            document.body.classList.add('frenzy-active');
+            frenzyTimeoutId = setTimeout(() => {
+                deactivateFrenzy();
+            }, 30000); // 30 seconds
+            console.log('feeding frenzy activated!');
+        }
+
+        /**
+         * turns off feeding frenzy
+         */
+        function deactivateFrenzy() {
+            isFrenzyActive = false;
+            frenzyMultiplier = 1;
+            document.body.classList.remove('frenzy-active');
+            frenzyTimeoutId = null;
+            console.log('feeding frenzy deactivated.');
+        }
+
+        /**
+         * starts the passive income money loop
+         */
+        function startPassiveIncomeLoop() {
+            setInterval(() => {
+                roachCount += passiveIncomeRate * frenzyMultiplier; // add frenzy
+                updateUI(); // updates visuals
+            }, 1000); // every 1 second
+        }
+
+        let lastTime = 0;
+        const roachMovementSpeed = 1; // pixels per frame per unit of speed
+
+        /**
+         * the main animation loop for bouncing roaches and the star
+         * use requestanimationframe 2 get smooth movement
+         * @param {DOMHighResTimeStamp} currentTime - time from requestanimationframe
+         */
+        function startRoachMovementLoop(currentTime) {
+            if (!lastTime) lastTime = currentTime;
+
+            const roachSize = 40; // around 2em for roach emoji
+            const spawnerSize = 60; // around 3em for spawner emoji
+            const roachAreaRect = roachArea.getBoundingClientRect();
+
+            // reg roach movement
+            visualRoaches.forEach(roachData => {
+                const minX = 0;
+                const minY = 0;
+                const maxX = roachAreaRect.width - roachSize;
+                const maxY = roachAreaRect.height - roachSize;
+
+                roachData.x += roachData.vx * roachMovementSpeed;
+                roachData.y += roachData.vy * roachMovementSpeed;
+
+                // hit boundaries
+                if (roachData.x < minX) {
+                    roachData.x = minX;
+                    roachData.vx *= -1; // flip x direction
+                } else if (roachData.x > maxX) {
+                    roachData.x = maxX;
+                    roachData.vx *= -1;
+                }
+
+                if (roachData.y < minY) {
+                    roachData.y = minY;
+                    roachData.vy *= -1; // flip y direction
+                } else if (roachData.y > maxY) {
+                    roachData.y = maxY;
+                    roachData.vy *= -1;
+                }
+
+                roachData.element.style.left = `${roachData.x}px`;
+                roachData.element.style.top = `${roachData.y}px`;
+            });
+
+            // star movement (if it exists)
+            if (starData.element) {
+                const minX = 0;
+                const minY = 0;
+                const maxX = roachAreaRect.width - spawnerSize; // use spawner size for star hit
+                const maxY = roachAreaRect.height - spawnerSize;
+
+                starData.x += starData.vx * roachMovementSpeed;
+                starData.y += starData.vy * roachMovementSpeed;
+
+                // hit boundaries for star
+                if (starData.x < minX) {
+                    starData.x = minX;
+                    starData.vx *= -1;
+                } else if (starData.x > maxX) {
+                    starData.x = maxX;
+                    starData.vx *= -1;
+                }
+
+                if (starData.y < minY) {
+                    starData.y = minY;
+                    starData.vy *= -1;
+                } else if (starData.y > maxY) {
+                    starData.y = maxY;
+                    starData.vy *= -1;
+                }
+
+                starData.element.style.left = `${starData.x}px`;
+                starData.element.style.top = `${starData.y}px`;
+            }
+
+            lastTime = currentTime;
+            requestAnimationFrame(startRoachMovementLoop);
+        }
+
+        /**
+         * updates all the stuff you see on screen
+         */
+        function updateUI() {
+            roachCountSpan.textContent = Math.floor(roachCount); // show as whole number
+            clickPowerSpan.textContent = clickValue; // update click POWER
+            passiveRateSpan.textContent = passiveIncomeRate; // update passive rate
+            updateUpgradeButtonStates();
+            updateVisualRoaches(); // make sure visuals are corekt
+        }
+
+        // --- start the game when window loads ---
+        window.onload = initializeGame;
+    </script>
+</body>
+</html>
