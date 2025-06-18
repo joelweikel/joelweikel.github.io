@@ -246,7 +246,7 @@
         let roachCount = 0;
         let clickValue = 1; // roaches per click
         let passiveIncomeRate = 0; // roaches per sec
-        const visualRoachCap = 500; // max visible roaches for speed
+        const visualRoachCap = 1400; // max visible roaches for speed
 
         // frenzy state variables
         let isFrenzyActive = false;
@@ -271,21 +271,21 @@
             { emoji: '🕰️', value: 1, title: 'like gregor, time never stops...', despawnTime: 120000 },
             { emoji: '💡', value: 1, title: 'Light illuminates a sea of darknes; woe is I for I will never see the glow of daylight, for I am confined to my rume due to moderate IBS...', despawnTime: 120000 },
             { emoji: '🗝️', value: 1, title: 'a useless key...', despawnTime: 120000 },
-            { emoji: '♟️', value: 1, title: 'a lost JoeleEch game...', despawnTime: 120000 },
-            { emoji: '🧳', value: 1, title: 'luggage never unpacked...', despawnTime: 120000 },
+            { emoji: '💾', value: 1, title: 'a lost JoelTech game...', despawnTime: 120000 },
+            { emoji: '🏹', value: 1, title: 'A shooters shoot never shot...', despawnTime: 120000 },
             { emoji: '📜', value: 1, title: 'Lost works of Kafka...', despawnTime: 120000 },
             { emoji: '⚖️', value: 1, title: '200 isnt even fat...', despawnTime: 120000 }
         ];
 
         // emojis for random spawners (can be high value)
         const randomSpawnerTypes = [
-            { emoji: '📚', value: 19, title: 'works of kafka (19x roaches!)', despawnTime: 30000 }, // 30 secs
+            { emoji: '📚', value: 19, title: 'works of kafka (19x roaches!)', despawnTime: 14000 }, // 30 secs
             { emoji: '🕰️', value: 2, title: 'time flies by (2x roaches!)', despawnTime: 30000 },
-            { emoji: '💩', value: 12, title: 'a pile of poo (12x roaches!)', despawnTime: 30000 },
-            { emoji: '🗑️', value: 7, title: 'useless trash (7x roaches!)', despawnTime: 20000 }, // short for high value
-            { emoji: '🪨', value: 5, title: 'a heavy rock (5x roaches!)', despawnTime: 25000 },
-            { emoji: '🧱', value: 2, title: 'a broken wall (2x roaches!)', despawnTime: 15000 },
-            { emoji: '🪜', value: 3, title: 'a wobbly ladder (3x roaches!)', despawnTime: 20000 }
+            { emoji: '💩', value: 12, title: 'a pile of poo (12x roaches!)', despawnTime: 16000 },
+            { emoji: '🗑️', value: 7, title: 'useless trash (7x roaches!)', despawnTime: 24000 }, // short for high value
+            { emoji: '🪨', value: 5, title: 'a heavy rock (5x roaches!)', despawnTime: 25001 },
+            { emoji: '🧱', value: 2, title: 'a broken wall (2x roaches!)', despawnTime: 30000 },
+            { emoji: '🪜', value: 3, title: 'a wobbly ladder (3x roaches!)', despawnTime: 30000 }
         ];
 
         // special spawner for frenzy
