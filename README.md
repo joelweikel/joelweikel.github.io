@@ -1,6 +1,15 @@
 # Joeltech Website
-Very nice website, probably the best looking ive made so far
+## What's New
+Included two new web based games: Gregor farmer and Loquat Picker
 
-Went for a more organic look inspired by Claude's design and the design for the Mollusk Surf Shop clothing brand
+Linked many projects outside of github
 
-Went out of my comphort zone a little, I'm not used to websites like this but i'm proud of the result.
+Improved the page's looks greatly
+
+Carried over many elements like the gradient and the idea of a cool meny but refined them much more
+
+## Code Explanation
+
+The header.html is the top bar - it is standardized between all the pages so the contents of the manu can be changed easily
+
+The games do not use the style.css, only the main pages
