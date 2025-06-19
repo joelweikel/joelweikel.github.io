@@ -1,4 +1,4 @@
-/* Hello body and Font Styles */
+/* Base */
 body {
     font-family: 'Lora', serif;
     margin: 0;
@@ -8,23 +8,28 @@ body {
     scroll-behavior: smooth;
     overflow-x: hidden;
 
-    /* background pattern */
+    /* the background pattern */
     background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10h20M10 0v20' stroke='%23e8e1d6' stroke-width='0.5' opacity='0.3' /%3E%3C/svg%3E");
     background-repeat: repeat;
-    background-size: 60px 60px; /* Adjust size to make lines finer/closer */
+    background-size: 60px 60px; /* line distance cghanger */
     background-attachment: fixed;
     background-position: center center;
 }
 
-/* Prevent body scrolling when menu is open */
+/* No scroll when menu open */
 body.no-scroll {
     overflow: hidden;
 }
 
 /* Headings and Titles Font */
 h2, h3, h4, .button {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'lora', sans-serif;
     font-weight: 700;
+}
+
+/* Normal Text Font */
+p {
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* Content width container */
@@ -58,7 +63,7 @@ header {
 
 /* JoelTech Title Styling (H1) */
 header .site-title {
-    background: linear-gradient(90deg, #ADD8E6, #87CEEB);
+    background: linear-gradient(90deg, #bfe8f6, #5ab8dd);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -71,7 +76,7 @@ header .site-title {
     flex-grow: 1;
 }
 
-/* Navigation Styles */
+/* Navigation */
 header nav {
     position: fixed;
     top: 0;
@@ -116,7 +121,7 @@ header a:hover {
     color: #ADD8E6;
 }
 
-/* Hamburger Menu */
+/* Menu icon */
 .menu-toggle {
     display: block;
     position: absolute;
@@ -139,7 +144,7 @@ header a:hover {
     transition: all 0.3s ease-in-out;
 }
 
-/* Elegant fat hamburger icon to 'X' animation */
+/* Beautiful fat hamburger icon to 'X' animation */
 .menu-toggle.open .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }
@@ -326,7 +331,7 @@ section {
     text-decoration: underline;
 }
 
-/* Footer Styles */
+/* Footer */
 footer {
     background-color: #222;
     color: white;
@@ -342,7 +347,7 @@ footer p {
     margin: 0;
 }
 
-/* Media Queries */
+/* Media */
 @media (max-width: 768px) {
     header .site-title {
         font-size: 2.5em;
@@ -457,7 +462,7 @@ footer p {
         background-size: 100px 100px;
     }
 
-/* Contact page specific styles */
+/* Contact page specific */
 .contact-links {
     text-align: center;
     margin-top: 30px;
