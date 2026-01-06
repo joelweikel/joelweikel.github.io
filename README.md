@@ -10,6 +10,6 @@ Carried over many elements like the gradient and the idea of a cool meny but ref
 
 ## Code Explanation
 
-The header.html is the top bar - it is standardized between all the pages so the contents of the manu can be changed easily
+The header.html is the top bar - it is standardized between all the pages so the contents of the menu can be changed easily
 
 The games do not use the style.css, only the main pages
