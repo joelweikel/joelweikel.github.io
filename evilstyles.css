@@ -1,171 +1,21 @@
+/* --- Modern evil styles. --- */
 * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            background-color: #000000;
-            color: #ffffff;
-            font-family: 'Orbitron', sans-serif;
-            padding: 80px 40px;
-        }
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+    padding: 80px 40px;
+}
 
-
-        header {
-            text-align: center;
-                background-color: #ffffff;
-    padding: 10px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-    position: sticky;
-    top: 0;
-    z-index: 1001;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 60px;
-        }
-
-        h1 {
-            font-size: 5rem;
-            font-weight: 700;
-            letter-spacing: -2px;
-            text-transform: uppercase;
-            color: #ffffff;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
-            display: flex;
-            justify-content: center;
-            align-items: center
-        }
-
-        /* --- Updated Layout Structure --- */
-        
-        /* Each row is now a 2-column Grid */
-        .content-row {
-            display: grid;
-            /* 1.2fr for media, 1fr for text (media is slightly wider) */
-            grid-template-columns: 1.2fr 1fr; 
-            gap: 60px; /* Space between media and text */
-            align-items: center; /* Vertically center content */
-            margin-bottom: 140px; /* Space between rows */
-        }
-
-        /* Alternating Layout: Reverse the order of even rows */
-        .content-row:nth-child(even) {
-            direction: rtl; /* Sets text direction Right-to-Left for this container */
-        }
-
-        /* Reset the text direction inside reversed containers so text reads normally */
-        .content-row:nth-child(even) .media-container,
-        .content-row:nth-child(even) .text-box {
-            direction: ltr; /* Sets content back to Left-to-Right */
-        }
-
-        /* Massive Media Containers (Image and Video) */
-        .media-container {
-            width: 100%;
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            
-            /* Enhanced 3D Bevel Effect */
-            background-color: #080808;
-            box-shadow: 
-                -6px -6px 15px rgba(255, 255, 255, 0.04),
-                6px 6px 20px rgba(0, 0, 0, 0.7),
-                inset 1px 1px 2px rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        /* Stylized Image Placeholder */
-        .image-placeholder {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #444;
-            font-size: 2.5rem;
-            font-weight: bold;
-        }
-
-        /* Embedded YouTube Video */
-        .video-embed {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            border: none;
-        }
-
-        /* Big, Borderless Text Boxes with Glowing Text */
-        .text-box {
-            padding: 20px;
-            /* In parallel layout, text looks better left-aligned */
-            text-align: left; 
-        }
-
-        .text-box h2 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 25px;
-            letter-spacing: -1px;
-            color: #fff;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
-        }
-
-        .text-box p {
-            font-size: 1.5rem;
-            color: #ffffff;
-            line-height: 1.7;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
-        }
-
-        .text-box ul {
-            font-size: 0.76 rem;
-            color: #ffffff;
-            line-height: 1.7;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
-            list-style-type: none;
-        }
-
-        footer {
-            margin-top: 150px;
-            padding-top: 50px;
-            text-align: center;
-            font-size: 1.2rem;
-            color: #333;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
-        }
-
-        /* Responsive Adjustments for Mobile */
-        @media (max-width: 1024px) {
-            .container { padding: 40px 20px; }
-            h1 { font-size: 3.5rem; }
-            
-            /* Stack elements vertically on smaller screens */
-            .content-row {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                margin-bottom: 80px;
-            }
-
-            /* Disable alternating layout on mobile */
-            .content-row:nth-child(even) {
-                direction: ltr;
-            }
-
-            .text-box { text-align: center; padding: 0; }
-            .text-box h2 { font-size: 2.5rem; }
-            .text-box p { font-size: 1.2rem; }
-        }
-
-
-/* No scroll when menu open */
 body.no-scroll {
     overflow: hidden;
 }
 
-/* width container */
 .container {
     width: 85%;
     max-width: 1600px;
@@ -173,13 +23,21 @@ body.no-scroll {
     overflow: hidden;
 }
 
-.content-wrapper {
-    padding: 30px 0;
-    position: relative;
-    z-index: 1;
+/* The header section */
+header {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
 }
 
-/* JoelTech Title Styling (H1) */
 header .site-title {
     background: linear-gradient(90deg, #1900ff, #00ccff);
     -webkit-background-clip: text;
@@ -194,7 +52,21 @@ header .site-title {
     flex-grow: 1;
 }
 
-/* Navigation */
+h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* The menu for header section */
+
 header nav {
     position: fixed;
     top: 0;
@@ -215,9 +87,10 @@ header nav.menu-open {
     transform: translateY(0);
 }
 
-/* Menu icon */
 .menu-toggle {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     position: absolute;
     right: 20px;
     top: 50%;
@@ -226,9 +99,6 @@ header nav.menu-open {
     height: 20px;
     cursor: pointer;
     z-index: 10000;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .menu-toggle .bar {
@@ -236,11 +106,8 @@ header nav.menu-open {
     height: 3px;
     background-color: rgb(0, 0, 0);
     transition: all 0.3s ease-in-out;
-
-
 }
 
-/* Beautiful fat hamburger icon to 'X' animation */
 .menu-toggle.open .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }
@@ -277,6 +144,62 @@ header a:hover {
     color: #0027a7;
 }
 
+/* --- Grid layout --- */
+.content-wrapper {
+    padding: 30px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.content-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 140px;
+}
+
+.content-row:nth-child(even) {
+    direction: rtl;
+}
+
+.content-row:nth-child(even) .media-container,
+.content-row:nth-child(even) .text-box {
+    direction: ltr;
+}
+
+/* --- Images & video --- */
+.media-container {
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    background-color: #080808;
+    box-shadow: 
+        -6px -6px 15px rgba(255, 255, 255, 0.04),
+        6px 6px 20px rgba(0, 0, 0, 0.7),
+        inset 1px 1px 2px rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.image-placeholder {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.video-embed {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    border: none;
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -286,4 +209,69 @@ video {
     max-width: 110%;
     height: auto;
     display: block;
+}
+
+/* --- Font and writing --- */
+.text-box {
+    padding: 20px;
+    text-align: left;
+}
+
+.text-box h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+}
+
+.text-box p {
+    font-size: 1.5rem;
+    color: #ffffff;
+    line-height: 1.7;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+}
+
+.text-box ul {
+    font-size: 0.76rem;
+    color: #ffffff;
+    line-height: 1.7;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+    list-style-type: none;
+}
+
+/* --- Footer --- */
+footer {
+    margin-top: 150px;
+    padding-top: 50px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+/* --- Phone --- */
+@media (max-width: 1024px) {
+    .container { padding: 40px 20px; }
+    
+    h1 { font-size: 3.5rem; }
+
+    .content-row {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 80px;
+    }
+
+    .content-row:nth-child(even) {
+        direction: ltr;
+    }
+
+    .text-box { 
+        text-align: center; 
+        padding: 0; 
+    }
+    
+    .text-box h2 { font-size: 2.5rem; }
+    .text-box p { font-size: 1.2rem; }
 }
