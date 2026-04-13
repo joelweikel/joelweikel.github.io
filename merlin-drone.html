@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallel Flow Exhibit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="evilstyles.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <main class="content-wrapper"></main>
+    <div class="container">
+        <div class="text-box">
+            <h1>Merlin Drone</h1>
+        </div>
+
+        <main>
+            
+            <div class="content-row">
+                <div class="media-container">
+                    <div class="image-placeholder"><img src="IMG_0294.JPEG" alt="Image of a 3d-printed drone"></div>
+                </div>
+                <div class="text-box">
+                    <h2>Current Design</h2>
+                    <p>This is the current design of the drone, which is a 3.5 inch freestyle FPV quad with a fully FDM 3D printed body.</p>
+                </div>
+            </div>
+
+            <div class="content-row">
+                <div class="media-container">
+                    <iframe class="video-embed" src="https://www.youtube.com/embed/kFzLXYZmyFM?si=nRZUCKzYa668U6IP" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="text-box">
+                    <h2>FPV Flight</h2>
+                    <p>This is some flight footage of the drone captured on my Insta360 Go 3s. My flying skills have yet to catch up to the drone's capabilities.</p>
+                </div>
+            </div>
+
+            <div class="content-row">
+                <div class="media-container">
+                    <div class="image-placeholder"><video controls="controls" width="800" height="600" name="3d Printing Video"><source src="PrintCF.mp4"></video>
+            </div>
+                </div>
+                <div class="text-box">
+                    <h2>Construction</h2>
+                    <p>This video shows the printing on the drone frame on a QIDI Q2, which takes around 7 hours. The frame is Polycarbonate Carbon fiber and weighs 76 grams.</p>
+                </div>
+            </div>
+
+            <div class="content-row">
+               <div class="media-container">
+                    <div class="image-placeholder"><img src="IMG_0055.JPEG" alt="Image of a drone ESC with questionable soldering :("></div>
+                </div>
+                <div class="text-box">
+                    <h2>Parts List</h2>
+                    <p>My drone uses:</p>
+                    <ul>
+                        <li>Motors: NIN 1404 V2 ULTRALIGHT</li>
+                        <li>ESC: GOKU G45M 32BIT ESC</li>
+                        <li>FC: GOKU F722 Pro Mini V2</li>
+                        <li>VTX: SpeedyBee TX ULTRA</li>
+                        <li>Camera: CaddxFPV Ratel2</li>
+                        <li>Radio Reciever: Flywoo TCXO 2.4G ELRS </li>
+                        <li>Battery: GAONENG GNB LiHV 4S 15.2V 850mAh 120C</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-row">
+                <div class="media-container">
+                    <div class="image-placeholder"><img src="BlenderDesign.png" alt="Image of a drone on Blender"></div>
+                </div>
+                <div class="text-box">
+                    <h2>How I Designed It</h2>
+                    <p>I used several design tools to create the drone's layout and structure. I started with blender to create a layout for all of the parts. Then I used FreeCAD to design parts that needed to be exact (like the mounts for the VTX and stack). Then I created the actual body of the drone with Blender's subdivision surface modifier. Finally, I used the Qidi slicer to print it.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+                        <p>&copy; 2026 Joel Weikel. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
