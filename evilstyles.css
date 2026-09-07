@@ -8,7 +8,7 @@
 body {
     background-color: #000000;
     color: #ffffff;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Bpmf Huninn', sans-serif;
     padding: 80px 40px;
 }
 
@@ -64,6 +64,17 @@ h1 {
     align-items: center;
 }
 
+a {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #4f14bb;
+    text-shadow: 0 0 50px #702dec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* The menu for header section */
 
