@@ -1,35 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Projects</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div id="header-placeholder"></div> <main class="content-wrapper">
-        <section id="games" class="container content-box">
-            <h3>My Projects Throughout My Life</h3>
-            <p class="timeline-intro">Some of my non-playable projects.</p>
-            <div class="timeline-grid"> <div class="timeline-item game-item">
-                    <h4>Janthina Drone <span class="game-year">(Jan-April 2026)</span></h4>
-                    <p>3.5 in freestyle FPV quad with a fully FDM 3d printed body</p>
-                    <a href="merlin-drone.html" target="_blank" class="game-link button">See More</a>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="My mud kitchen Eagle project, sailing instruction, fencing, and economics work.">
+        <meta name="theme-color" content="#0A3D62">
+        <title>More projects | Joel Weikel</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer></script>
+    <noscript><style>@media(max-width:700px){header nav{display:block;position:static}header nav ul{display:flex;flex-wrap:wrap;gap:5px 20px;padding:0 0 20px}header nav a{font-size:12px}.header-inner{flex-wrap:wrap;padding-top:15px}.menu-toggle{display:none}}</style></noscript>
+    </head>
+    <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+        <!-- Header is included here so navigation also works without Javascript. -->
+        <div id="header-placeholder">
+            <header>
+                <div class="container header-inner">
+                    <a class="site-title" href="index.html">Joel Weikel<span class="title-dot">.</span></a>
+                    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">Menu <span aria-hidden="true">+</span></button>
+                    <nav id="mainNav" aria-label="Main navigation">
+                        <ul>
+                            <li>
+                                <a href="index.html">About</a>
+                            </li>
+                            <li>
+                                <a href="janthina-drone.html">Drone</a>
+                            </li>
+                            <li>
+                                <a href="metals.html">Foundry</a>
+                            </li>
+                            <li>
+                                <a href="games.html">Games</a>
+                            </li>
+                            <li>
+                                <a href="projects.html">More projects</a>
+                            </li>
+                            <li>
+                                <a href="Resume.pdf">Résumé ↗</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 JoelTech. All rights reserved.</p>
+            </header>
         </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
+        <main id="main">
+            <div class="container">
+                <section class="page-intro">
+                    <p class="eyebrow">Other interests</p>
+                    <h1>A few other<br>things I do.</h1>
+                    <p class="intro">Teaching, competing, and making things for the people around me.</p>
+                </section>
+                <section class="content-row ">
+                    <figure class="media-container">
+                        <img src="EagleProject.JPEG" alt="The completed mud kitchen for a local preschool" loading="lazy" decoding="async">
+                        <figcaption>The finished mud kitchen.</figcaption>
+                    </figure>
+                    <div class="text-box">
+                        <p class="eyebrow">Eagle project</p>
+                        <h2>A kitchen made<br>for mud.</h2>
+                        <p>I designed and built a mud kitchen for a local preschool after its previous one rotted away. The new design uses six sturdy 4×4 beams and pressure-treated wood.</p>
+                        <p>I also designed and printed the knobs and burners in Blender. It brought together the planning, construction, and modeling work I enjoy in one project for the playground.</p>
+                    </div>
+                </section>
+                <section class="content-row ">
+                    <figure class="media-container">
+                        <img src="Sailing.JPEG" alt="Sailboats out on the water" loading="lazy" decoding="async">
+                        <figcaption>Time on the water.</figcaption>
+                    </figure>
+                    <div class="text-box">
+                        <p class="eyebrow">On the water</p>
+                        <h2>Teaching sailing.</h2>
+                        <p>At the North Carolina Maritime Museum, I planned and taught lessons for more than 200 students ages 8–16, managed junior instructors, and operated powerboats.</p>
+                        <p>I hold US Sailing Level 2 certification. Teaching means paying attention to what each student needs, while keeping the whole group moving.</p>
+                    </div>
+                </section>
+                <section class="content-row ">
+                    <figure class="media-container">
+                        <img src="Fencing.JPEG" alt="Fencing teammates together at a competition" loading="lazy" decoding="async">
+                        <figcaption>With my fencing teammates.</figcaption>
+                    </figure>
+                    <div class="text-box">
+                        <p class="eyebrow">Fencing</p>
+                        <h2>On the strip.</h2>
+                        <p>I’m a varsity team captain in the North Carolina Fencer’s League. Our team won regional championships in 2024, 2025, and 2026, and I won individual and team state championships in 2025.</p>
+                        <p>I’ve earned a USA Fencing D rating and tutor teammates twice a week.</p>
+                    </div>
+                </section>
+                <section class="content-row ">
+                    <figure class="media-container">
+                        <img src="Economics.JPEG" alt="A gathering with members of the college community" loading="lazy" decoding="async">
+                        <figcaption>Around the table.</figcaption>
+                    </figure>
+                    <div class="text-box">
+                        <p class="eyebrow">Economics &amp; community</p>
+                        <h2>Learning with<br>other people.</h2>
+                        <p>As a microeconomics TA at Guilford College, I grade assignments and tests, host office hours, and helped create a study-session system before tests.</p>
+                        <p>I also serve as treasurer of Market Minds, helping organize finance education and community outreach events. I organized a real-estate research event, and founded a neighborhood ecology club to clean a local park.</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <div class="container footer-inner">
+                <a href="index.html">Joel Weikel</a>
+                <p>Made in Greensboro, North Carolina.</p>
+                <a href="contact.html">Get in touch ↗</a>
+                <small>© 2026 Joel Weikel</small>
+            </div>
+        </footer>
+    </body>
 </html>

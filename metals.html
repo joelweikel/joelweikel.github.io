@@ -1,48 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metalworking - Joel Weikel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="evilstyles.css">
-</head>
-<body>
-    <div id="header-placeholder"></div>
-    <main class="content-wrapper"></main>
-    <div class="container">
-        <div class="text-box">
-            <h1>Metalworking</h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="My metal casting, alloy experiments, and interactive ASCII crystal lattice.">
+        <meta name="theme-color" content="#0A3D62">
+        <title>The foundry | Joel Weikel</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer></script>
+    <noscript><style>@media(max-width:700px){header nav{display:block;position:static}header nav ul{display:flex;flex-wrap:wrap;gap:5px 20px;padding:0 0 20px}header nav a{font-size:12px}.header-inner{flex-wrap:wrap;padding-top:15px}.menu-toggle{display:none}}</style></noscript>
+        <script src="crystal.js" defer></script>
+    </head>
+    <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+        <!-- Header is included here so navigation also works without Javascript. -->
+        <div id="header-placeholder">
+            <header>
+                <div class="container header-inner">
+                    <a class="site-title" href="index.html">Joel Weikel<span class="title-dot">.</span></a>
+                    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">Menu <span aria-hidden="true">+</span></button>
+                    <nav id="mainNav" aria-label="Main navigation">
+                        <ul>
+                            <li>
+                                <a href="index.html">About</a>
+                            </li>
+                            <li>
+                                <a href="janthina-drone.html">Drone</a>
+                            </li>
+                            <li>
+                                <a href="metals.html">Foundry</a>
+                            </li>
+                            <li>
+                                <a href="games.html">Games</a>
+                            </li>
+                            <li>
+                                <a href="projects.html">More projects</a>
+                            </li>
+                            <li>
+                                <a href="Resume.pdf">Résumé ↗</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
         </div>
-
-        <main>
-            
-            <div class="content-row">
-                <div class="media-container">
-                    <div class="image-placeholder"><img src="NAB.JPEG" alt="Image of a 3d-printed drone"></div>
+        <main id="main">
+            <!-- ASCII atoms are drawn on a canvas. The explanation also works without it. -->
+            <section class="crystal-section" id="crystalSection">
+                <div class="crystal-stage">
+                    <div class="container crystal-layout">
+                        <div class="crystal-copy">
+                            <p class="eyebrow">The foundry</p>
+                            <h1>Metal, from<br>the <em>inside out.</em></h1>
+                            <p class="intro">I’m interested in what a material is made of, how it behaves, and what I can make with it.</p>
+                            <p class="crystal-caption" id="crystalDescription">Copper’s face-centered cubic lattice has atoms at each corner and the center of every face.</p>
+                            <div class="crystal-controls" aria-label="Crystal structure">
+                                <button type="button" data-lattice="fcc" aria-pressed="true">FCC / Copper</button>
+                                <button type="button" data-lattice="hcp" aria-pressed="false">HCP / Zinc</button>
+                            </div>
+                            <p class="small-note">Drag to rotate</p>
+                        </div>
+                        <div class="crystal-visual">
+                            <canvas id="crystalCanvas" tabindex="0" role="img" aria-label="Rotatable ASCII model of an FCC crystal lattice. Drag or use arrow keys to rotate." aria-describedby="crystalDescription">A model of repeating crystal cells.</canvas>
+                            <div class="crystal-readout">
+                                <span id="latticeReadout">Cu / FCC</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-box">
-                    <h2>About</h2>
-                    <p>As someone with interests in materials science and engineering, the ability to make things out of higher performance materials is very appealing. With access to alloys like ZA-27 and Aluminum Bronze, I can make very strong parts.</p>
+            </section>
+            <div class="story-surface">
+                <div class="container">
+                    <div class="project-intro">
+                        <p class="eyebrow">From structure to casting</p>
+                        <h2>A small foundry.<br>A lot to try.</h2>
+                        <div>
+                            <p class="intro">Casting lets me turn an interest in materials science into something I can hold.</p>
+                            <p>I’ve led a team of friends in making useful and artistic castings from recycled metals and alloys, including ZA-27, spinodal bronze, and manganese bronze.</p>
+                        </div>
+                    </div>
+                    <section class="content-row diagram-row">
+                        <figure class="media-container">
+                            <img src="PhaseDiagram.png" alt="Calculated copper-aluminum phase diagram" loading="lazy" decoding="async">
+                            <figcaption>Copper-aluminum phase diagram.</figcaption>
+                        </figure>
+                        <div class="text-box">
+                            <p class="eyebrow">Alloy experimentation</p>
+                            <h2>Small changes.<br>Different behavior.</h2>
+                            <p>I use CALPHAD to explore the phases in different alloy compositions. Copper and aluminum are a good example: an aluminum bronze can be strong and ductile, while adding much more aluminum can produce brittle intermetallic compounds.</p>
+                            <p>I’ve made intermetallic samples hard enough to scratch glass but brittle enough to break by hand. It’s a useful reminder that hardness and toughness are different properties.</p>
+                        </div>
+                    </section>
+                    <section class="content-row ">
+                        <figure class="media-container">
+                            <img src="NAB.JPEG" alt="Cast nickel-aluminum bronze knife blank" loading="lazy" decoding="async">
+                            <figcaption>A nickel-aluminum bronze knife casting.</figcaption>
+                        </figure>
+                        <div class="text-box">
+                            <p class="eyebrow">Useful castings</p>
+                            <h2>From Scrap to Tool.</h2>
+                            <p>One project was a nickel-aluminum bronze knife casting. I’m interested in how alloy choice and the casting process change what I can make, from experimental hardware to a finished object.</p>
+                            <p>Working with alloys such as ZA-27 and aluminum bronze gives options to match the required material performance and price.</p>
+                        </div>
+                    </section>
+                    <section class="content-row ">
+                        <figure class="media-container">
+                            <img src="jewelry.jpg" alt="Copper necklace pendant from my casting projects" loading="lazy" decoding="async">
+                            <figcaption>A copper necklace pendant.</figcaption>
+                        </figure>
+                        <div class="text-box">
+                            <p class="eyebrow">Cast jewelry</p>
+                            <h2>Working at a smaller scale.</h2>
+                            <p>I’ve used sand casting, lost-foam casting, and investment techniques to make jewelry. Projects include a copper pendant, a ZA-27 zinc alloy ring, and a cubic zirconia set into pure zinc.</p>
+                            <p>These smaller objects give me another way to try casting methods and work with different materials.</p>
+                        </div>
+                    </section>
+                    <section class="content-row ">
+                        <figure class="media-container">
+                            <img src="ZincMicroscope.JPEG" alt="Microscope view of a zinc sample" loading="lazy" decoding="async">
+                            <figcaption>Zinc cast surface, 50x magnification</figcaption>
+                        </figure>
+                        <div class="text-box">
+                            <p class="eyebrow">Looking closer</p>
+                            <h2>Under the microscope.</h2>
+                            <p>The finished shape is only part of what interests me. Looking more closely at a sample gives me another way to think about the material behind the object.</p>
+                            <p>This is a microscope image of cast zinc. It has a clean surface because zinc doesn't form thick scale when cast, unlike copper</p>
+                        </div>
+                    </section>
+                    <section class="casting-gallery">
+                        <p class="eyebrow">Casting Methods</p>
+                        <div class="two-up">
+                            <figure>
+                                <img src="LostFoamKnife.JPEG" alt="Knife-shaped pattern used for lost-foam casting" loading="lazy" decoding="async">
+                                <figcaption>A lost-foam knife pattern. The foam vaporizes on contact with molten metals, leaving a simple mold.</figcaption>
+                            </figure>
+                            <figure>
+                                <img src="MMORP3dPrint.JPEG" alt="Knife in progress" loading="lazy" decoding="async">
+                                <figcaption>PLA mold ready for lost-PLA casting. The PLA will be melted and burned out of an investment mold.</figcaption>
+                            </figure>
+                        </div>
+                    </section>
                 </div>
             </div>
-
-            <div class="content-row">
-                <div class="media-container">
-                    <div class="image-placeholder"><img src="PhaseDiagram.png" alt="Image of a Copper-Aluminum phase diagram"></div>
-                </div>
-                <div class="text-box">
-                    <h2>Alloy Experimentation</h2>
-                    <p>I have used the CALPHAD method to model the phase and properties of various alloys. For example a copper-aluminum alloy can yield a stronmg but ductile aluminum bronze, but with too much aluminum this same system makes intermetallics that are brittle enough to break by hand but hard enough to scratch glass.</p>
-                </div>
-            </div>
-
         </main>
-
         <footer>
-                        <p>&copy; 2026 Joel Weikel. All rights reserved.</p>
+            <div class="container footer-inner">
+                <a href="index.html">Joel Weikel</a>
+                <p>Made in Greensboro, North Carolina.</p>
+                <a href="contact.html">Get in touch ↗</a>
+                <small>© 2026 Joel Weikel</small>
+            </div>
         </footer>
-    </div>
-    <script src="script.js"></script>
-</body>
+    </body>
 </html>

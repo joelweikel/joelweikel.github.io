@@ -1,62 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JoelTech - My Games</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div id="header-placeholder"></div> <main class="content-wrapper">
-        <section id="games" class="container content-box">
-            <h3>My Games - Development Timeline</h3>
-            <p class="timeline-intro">Look through a brief history of my game development.</p>
-
-            <div class="timeline-grid">
-                <div class="timeline-item game-item">
-                    <h4>MMORP 3D <span class="game-year">(October 2024)</span></h4>
-                    <p>Latest iteration of the MMORP series, this time in Unreal Engine 5 without the use of any outside assets of any kind.</p>
-                    <a href="https://perkanover.itch.io/mmorp-3d" target="_blank" class="game-link button">View on itch.io</a>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Games I made in Scratch and Unreal Engine, with original Blender models.">
+        <meta name="theme-color" content="#0A3D62">
+        <title>Game development | Joel Weikel</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer></script>
+        <noscript>
+            <style>@media(max-width:700px){header nav{display:block;position:static}header nav ul{display:flex;flex-wrap:wrap;gap:5px 20px;padding:0 0 20px}header nav a{font-size:12px}.header-inner{flex-wrap:wrap;padding-top:15px}.menu-toggle{display:none}}</style>
+        </noscript>
+    </head>
+    <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+        <!-- Header is included here so navigation also works without Javascript. -->
+        <div id="header-placeholder">
+            <header>
+                <div class="container header-inner">
+                    <a class="site-title" href="index.html">Joel Weikel<span class="title-dot">.</span></a>
+                    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">Menu <span aria-hidden="true">+</span></button>
+                    <nav id="mainNav" aria-label="Main navigation">
+                        <ul>
+                            <li>
+                                <a href="index.html">About</a>
+                            </li>
+                            <li>
+                                <a href="janthina-drone.html">Drone</a>
+                            </li>
+                            <li>
+                                <a href="metals.html">Foundry</a>
+                            </li>
+                            <li>
+                                <a href="games.html">Games</a>
+                            </li>
+                            <li>
+                                <a href="projects.html">More projects</a>
+                            </li>
+                            <li>
+                                <a href="Resume.pdf">Résumé ↗</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-                
-                <div class="timeline-item game-item">
-                    <h4>Kafkaesque Game <span class="game-year">(April 2024)</span></h4>
-                    <p>My first slightly overambitious major project in Unreal Engine 5, featuring randomly generated terrain, land & air vehicles, and an advanced building system.</p>
-                    <a href="https://perkanover.itch.io/kafkaesque-game" target="_blank" class="game-link button">View on itch.io</a>
-                </div>
-
-                <div class="timeline-item game-item">
-                    <h4>MMORP 3 (Gameplay Test) <span class="game-year">(May 2022)</span></h4>
-                    <p>A significant step forward compared to MMORP, this was a major step in refining movement and ui.</p>
-                    <a href="MMORP 3 (gameplay Test)(1).html" target="_blank" class="game-link button">Play (on-site)</a>
-                </div>
-
-                <div class="timeline-item game-item">
-                    <h4>MMORP <span class="game-year">(December 2021)</span></h4>
-                    <p>The original MMORP project, built on Scratch. This game laid the groundwork for the series.</p>
-                    <a href="https://scratch.mit.edu/projects/612511851/" target="_blank" class="game-link button">View on Scratch</a>
-                </div>
-
-                <div class="timeline-item game-item">
-                    <h4>Bunny <span class="game-year">(April 2020)</span></h4>
-                    <p>My very first game. A charming and simple project on Scratch.</p>
-                    <a href="https://scratch.mit.edu/projects/377755258/" target="_blank" class="game-link button">View on Scratch</a>
-                </div>
-
-            </div>
-            <p class="timeline-note">Note: This timeline only includes select highlights, not every game.</p>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 JoelTech. All rights reserved.</p>
+            </header>
         </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
+        <main id="main">
+            <div class="container">
+                <section class="page-intro">
+                    <p class="eyebrow">Game development</p>
+                    <h1>Worlds made<br>for fun.</h1>
+                    <p class="intro">I started making games in Scratch and later moved to Unreal Engine 5. Along the way, I’ve built terrain generation, vehicle systems, building mechanics, and air-to-air combat.</p>
+                    <p>I make my models in Blender. The games have been a reason to keep learning, and something to share with friends.</p>
+                </section>
+                <section class="content-row game-feature">
+                    <figure>
+                        <img src="MMORP3dPrint.JPEG" alt="A physical 3D print of one of my game models" loading="lazy" decoding="async">
+                        <figcaption>One of my game models, brought off the screen.</figcaption>
+                    </figure>
+                    <div>
+                        <p class="eyebrow">From Blender to the printer</p>
+                        <h2>The models are<br>part of the project.</h2>
+                        <p>Making the assets myself is a big part of the fun. For MMORP 3D, I worked in Unreal Engine 5 without using any outside assets.</p>
+                        <a class="text-link" href="https://perkanover.itch.io/">My games on itch.io ↗</a>
+                    </div>
+                </section>
+                <section class="game-gallery" aria-labelledby="gallery-title">
+                    <p class="eyebrow">In-game</p>
+                    <h2 id="gallery-title">A few views from my games.</h2>
+                    <div class="game-shots">
+                        <figure>
+                            <a href="game-menu.png" target="_blank" rel="noopener" aria-label="Open image: MMORP 3D title screen"><img src="game-menu.png" alt="MMORP 3D title screen" loading="lazy" decoding="async"></a>
+                            <figcaption>MMORP 3D title screen.</figcaption>
+                        </figure>
+                        <figure>
+                            <a href="game-building.png" target="_blank" rel="noopener" aria-label="Open image: Buildings and structures in an open landscape"><img src="game-building.png" alt="Buildings and structures in an open landscape" loading="lazy" decoding="async"></a>
+                            <figcaption>Player built structures with a custom color palette.</figcaption>
+                        </figure>
+                        <figure>
+                            <a href="game-terrain.png" target="_blank" rel="noopener" aria-label="Open image: Generated terrain stretching toward the coast"><img src="game-terrain.png" alt="Generated terrain stretching toward the coast" loading="lazy" decoding="async"></a>
+                            <figcaption>Randomly generated terrain.</figcaption>
+                        </figure>
+                        <figure>
+                            <a href="game-characters.png" target="_blank" rel="noopener" aria-label="Open image: Character models during gameplay"><img src="game-characters.png" alt="Character models during gameplay" loading="lazy" decoding="async"></a>
+                            <figcaption>MMORP 3D Gameplay.</figcaption>
+                        </figure>
+                    </div>
+                </section>
+                <section class="games-timeline">
+                    <p class="eyebrow">Development timeline / 2020–2024</p>
+                    <div class="timeline-grid">
+                        <div class="timeline-item game-item">
+                            <h4>MMORP 3D <span class="game-year">(October 2024)</span></h4>
+                            <p>Latest iteration of the MMORP series, this time in Unreal Engine 5 without the use of any outside assets of any kind.</p>
+                            <a href="https://perkanover.itch.io/mmorp-3d" target="_blank" rel="noopener noreferrer" class="game-link button">View on itch.io</a>
+                        </div>
+                        <div class="timeline-item game-item">
+                            <h4>Kafkaesque Game <span class="game-year">(April 2024)</span></h4>
+                            <p>My first slightly overambitious major project in Unreal Engine 5, featuring randomly generated terrain, land &amp; air vehicles, and an advanced building system.</p>
+                            <a href="https://perkanover.itch.io/kafkaesque-game" target="_blank" rel="noopener noreferrer" class="game-link button">View on itch.io</a>
+                        </div>
+                        <div class="timeline-item game-item">
+                            <h4>MMORP 3 (Gameplay Test) <span class="game-year">(May 2022)</span></h4>
+                            <p>A significant step forward compared to MMORP, this was a major step in refining movement and ui.</p>
+                            <a href="MMORP%203%20(gameplay%20Test)(1).html" target="_blank" rel="noopener noreferrer" class="game-link button">Play (on-site)</a>
+                        </div>
+                        <div class="timeline-item game-item">
+                            <h4>MMORP <span class="game-year">(December 2021)</span></h4>
+                            <p>The original MMORP project, built on Scratch. This game laid the groundwork for the series.</p>
+                            <a href="https://scratch.mit.edu/projects/612511851/" target="_blank" rel="noopener noreferrer" class="game-link button">View on Scratch</a>
+                        </div>
+                        <div class="timeline-item game-item">
+                            <h4>Bunny <span class="game-year">(April 2020)</span></h4>
+                            <p>My very first game. A charming and simple project on Scratch.</p>
+                            <a href="https://scratch.mit.edu/projects/377755258/" target="_blank" rel="noopener noreferrer" class="game-link button">View on Scratch</a>
+                        </div>
+                    </div>
+                    <p class="small-note">This timeline includes selected projects with playable or published versions.</p>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <div class="container footer-inner">
+                <a href="index.html">Joel Weikel</a>
+                <p>Made in Greensboro, North Carolina.</p>
+                <a href="contact.html">Get in touch ↗</a>
+                <small>© 2026 Joel Weikel</small>
+            </div>
+        </footer>
+    </body>
 </html>

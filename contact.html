@@ -1,33 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JoelTech - Contact Me</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div id="header-placeholder"></div> <main class="content-wrapper">
-        <section id="contact" class="container content-box">
-            <h3>My Socials</h3>
-            <div class="contact-links">
-                <p>Itch.io: <a href="https://perkanover.itch.io/" target="_blank">perkanover</a></p>
-                <p>Scratch: <a href="https://scratch.mit.edu/users/JW_mollusk_man/" target="_blank">JW_mollusk_man</a></p>
-                <p>GitHub: <a href="https://github.com/joelweikel" target="_blank">joelweikel</a></p>
-                <p>Youtube: <a href="https://www.youtube.com/@perkanover" target="_blank">@Perkanover</a></p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 JoelTech. All rights reserved.</p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Get in touch with Joel Weikel.">
+        <meta name="theme-color" content="#0A3D62">
+        <title>Contact | Joel Weikel</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer></script>
+    <noscript><style>@media(max-width:700px){header nav{display:block;position:static}header nav ul{display:flex;flex-wrap:wrap;gap:5px 20px;padding:0 0 20px}header nav a{font-size:12px}.header-inner{flex-wrap:wrap;padding-top:15px}.menu-toggle{display:none}}</style></noscript>
+    </head>
+    <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+        <!-- Header is included here so navigation also works without Javascript. -->
+        <div id="header-placeholder">
+            <header>
+                <div class="container header-inner">
+                    <a class="site-title" href="index.html">Joel Weikel<span class="title-dot">.</span></a>
+                    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">Menu <span aria-hidden="true">+</span></button>
+                    <nav id="mainNav" aria-label="Main navigation">
+                        <ul>
+                            <li>
+                                <a href="index.html">About</a>
+                            </li>
+                            <li>
+                                <a href="janthina-drone.html">Drone</a>
+                            </li>
+                            <li>
+                                <a href="metals.html">Foundry</a>
+                            </li>
+                            <li>
+                                <a href="games.html">Games</a>
+                            </li>
+                            <li>
+                                <a href="projects.html">More projects</a>
+                            </li>
+                            <li>
+                                <a href="Resume.pdf">Résumé ↗</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
         </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
+        <main id="main">
+            <section class="container page-intro contact-page">
+                <p class="eyebrow">Get in touch</p>
+                <h1>Let’s talk<br>projects.</h1>
+                <p class="intro">You can email me or find more of my work below.</p>
+                <a class="email-link" href="mailto:joelweikel99@gmail.com">joelweikel99@gmail.com ↗</a>
+                <div class="social-links">
+                    <a href="https://github.com/joelweikel">GitHub ↗</a>
+                    <a href="https://perkanover.itch.io/">Itch.io ↗</a>
+                    <a href="https://www.youtube.com/@perkanover">YouTube ↗</a>
+                    <a href="https://scratch.mit.edu/users/JW_mollusk_man/">Scratch ↗</a>
+                    <a href="https://www.instagram.com/joelweikel/">Instagram ↗</a>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="container footer-inner">
+                <a href="index.html">Joel Weikel</a>
+                <p>Made in Greensboro, North Carolina.</p>
+                <a href="contact.html">Get in touch ↗</a>
+                <small>© 2026 Joel Weikel</small>
+            </div>
+        </footer>
+    </body>
 </html>
