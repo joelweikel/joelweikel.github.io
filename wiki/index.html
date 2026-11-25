@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Explore the characters, games, places, and lore of the MMORP universe.">
+<meta name="theme-color" content="#0a3d62">
+<title>Home | MMORP Wiki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="wiki.css">
+<script src="search-data.js" defer></script>
+<script src="wiki.js" defer></script>
+<noscript><style>@media(max-width:700px){header nav{display:block;position:static}header nav ul{display:flex;flex-wrap:wrap;gap:5px 20px;padding:0 0 20px}header nav a{font-size:12px}.header-inner{flex-wrap:wrap;padding-top:15px}.menu-toggle{display:none}}</style></noscript>
+</head>
+<body class="wiki-page" id="top">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="header-placeholder">
+        <header>
+            <div class="container header-inner">
+                <a class="site-title" href="../index.html">Joel Weikel<span class="title-dot">.</span></a>
+                <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">Menu <span aria-hidden="true">+</span></button>
+                <nav id="mainNav" aria-label="Main navigation">
+                    <ul>
+                        <li><a href="../index.html">About</a></li>
+                        <li><a href="../janthina-drone.html">Drone</a></li>
+                        <li><a href="../metals.html">Foundry</a></li>
+                        <li><a href="../games.html">Games</a></li>
+                        <li><a href="../projects.html">More projects</a></li>
+                        <li><a href="../Resume.pdf">Résumé ↗</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </div>
+<div class="wiki-bar">
+        <div class="container wiki-bar-inner">
+            <a class="wiki-wordmark" href="index.html" aria-label="MMORP Wiki home"><span>MMORP</span><small>THE WIKI</small></a>
+            <nav class="wiki-topnav" aria-label="Wiki navigation">
+                <a href="index.html#characters">Characters</a>
+                <a href="index.html#games">Games</a>
+                <a href="index.html#world">World</a>
+                <a href="index.html#joeltech">Joeltech</a>
+            </nav>
+            <div class="wiki-search">
+                <form id="wiki-search-form" role="search" action="index.html#browse">
+                    <label class="sr-only" for="wiki-search-input">Search the MMORP Wiki</label>
+                    <span class="search-icon" aria-hidden="true"></span>
+                    <input id="wiki-search-input" type="search" placeholder="Search the wiki" autocomplete="off" aria-controls="search-results" aria-describedby="search-help">
+                    <button type="submit" class="search-submit">Search</button>
+                </form>
+                <div class="search-results" id="search-results" hidden></div>
+                <span class="sr-only" id="search-help">Search articles by name or keyword. Results appear below the search field.</span>
+                <span class="sr-only" id="search-announcement" role="status" aria-live="polite"></span>
+            </div>
+        </div>
+    </div>
+<main id="main">
+    <section class="wiki-cover">
+        <div class="container cover-grid">
+            <div class="cover-copy">
+                <p class="cover-kicker"><span></span> AN EVER-EXPANDING UNIVERSE</p>
+                <h1>The world<br>of <em>MMORP.</em></h1>
+                <p>One character. A lot of enemies. An entire universe of games, places, and wonderfully questionable lore.</p>
+                <div class="cover-actions"><a class="cover-button" href="#browse">Explore the wiki</a><a class="cover-link" href="mmorp.html">Meet MMORP</a></div>
+            </div>
+            <div class="cover-visual" aria-hidden="true">
+                <div class="cover-orbit orbit-one"></div><div class="cover-orbit orbit-two"></div>
+                <span class="cover-spark spark-one">✦</span><span class="cover-spark spark-two">✳</span>
+                <img class="cover-character" src="assets/mmorp.webp" alt="" decoding="async">
+                <div class="cover-stamp">THE<br>MMORP<br>UNIVERSE</div>
+            </div>
+        </div>
+        <div class="container cover-bottom"><span>GAMES · CHARACTERS · LORE</span><span>EST. IN SCRATCH, 2021</span></div>
+    </section>
+    <div class="container wiki-layout home-layout">
+        <aside class="wiki-sidebar" aria-label="Explore the wiki">
+        <p class="rail-heading">The MMORP Wiki</p>
+        <a class="rail-home" href="index.html">Wiki home</a>
+        <p class="rail-heading">Explore</p>
+        <ul><li><a href="index.html#characters">Characters <span>18</span></a></li><li><a href="index.html#games">Games &amp; mechanics <span>6</span></a></li><li><a href="index.html#world">World &amp; lore <span>5</span></a></li><li><a href="index.html#joeltech">Joeltech <span>3</span></a></li></ul>
+        <div class="rail-note"><span>THE ORIGINAL</span><p>Ten levels. A lot of projectiles.</p><a href="mmorp-1.html">Explore MMORP</a></div>
+    </aside>
+        <div class="wiki-content">
+            <section class="welcome-section">
+                <div><p class="section-kicker">WELCOME TO THE ARCHIVE</p><h2>There’s more to<br><em>the story.</em></h2></div>
+                <div><p>What started as a Scratch game became a world of its own. Get to know the characters, revisit the games, and see where the lore goes.</p><p class="welcome-count"><strong>32</strong> articles to explore <span>·</span> one very unusual universe</p></div>
+            </section>
+            <section class="portals-section" aria-labelledby="portals-title">
+                <div class="section-heading-inline"><div><p class="section-kicker">PICK A STARTING POINT</p><h2 id="portals-title">Explore by category</h2></div></div>
+                <div class="portal-grid"><a class="portal portal-characters" href="#characters">
+        <span class="portal-art"><img class="" src="assets/plopper.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="portal-label"><small>Meet the cast</small><strong>Characters</strong><span>18 articles</span></span>
+    </a><a class="portal portal-games" href="#games">
+        <span class="portal-art"><img class="" src="assets/mmorp1-splash.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="portal-label"><small>Play through the series</small><strong>Games &amp; mechanics</strong><span>6 articles</span></span>
+    </a><a class="portal portal-world" href="#world">
+        <span class="portal-art"><img class="" src="assets/archipelago.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="portal-label"><small>See the sights</small><strong>World &amp; lore</strong><span>5 articles</span></span>
+    </a><a class="portal portal-joeltech" href="#joeltech">
+        <span class="portal-art"><img class="" src="assets/gale.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="portal-label"><small>Think higher</small><strong>Joeltech</strong><span>3 articles</span></span>
+    </a></div>
+            </section>
+            <section class="feature-section">
+                <div class="feature-copy"><p class="section-kicker">FROM THE ARCHIVE</p><h2>Meet the<br><em>Threnemy.</em></h2><p>A spinning wheel. Waves of three. The third level of the original MMORP has a way of making an entrance.</p><a href="threnemy.html">Read the article</a></div>
+                <div class="feature-art"><img class="" src="assets/threnemy-wheel.webp" alt="The Threnemy spawner wheel in MMORP 3D" loading="lazy" decoding="async"></div>
+            </section>
+            <section class="level-section">
+                <div class="section-heading-inline"><div><p class="section-kicker">THE ORIGINAL GAME</p><h2>Meet the classic ten</h2><p>From the first Squelch to the infamous Tennemy.</p></div><a class="subtle-link" href="mmorp-1.html">About the game</a></div>
+                <ol class="level-list"><li><a href="squelch.html"><span>01</span>Squelch</a></li><li><a href="plopper.html"><span>02</span>Plopper</a></li><li><a href="threnemy.html"><span>03</span>Threnemy</a></li><li><a href="helper.html"><span>04</span>Helper</a></li><li><a href="chomper.html"><span>05</span>Chomper</a></li><li><a href="wall.html"><span>06</span>Wall</a></li><li><a href="momo.html"><span>07</span>Momo</a></li><li><a href="prickly.html"><span>08</span>Prickly</a></li><li><a href="derek.html"><span>09</span>Derek</a></li><li><a href="tennemy.html"><span>10</span>Tennemy</a></li></ol>
+            </section>
+            <section class="browse-section" id="browse">
+                <div class="browse-intro"><div><p class="section-kicker">THE ENCYCLOPEDIA</p><h2>All articles</h2></div><p>Browse the archive or use the search above to find something specific.</p></div>
+                <div class="filter-bar" aria-label="Filter articles by category" hidden><button type="button" data-filter="all" aria-pressed="true">All articles</button><button type="button" data-filter="characters" aria-pressed="false">Characters</button><button type="button" data-filter="games" aria-pressed="false">Games &amp; mechanics</button><button type="button" data-filter="world" aria-pressed="false">World &amp; lore</button><button type="button" data-filter="joeltech" aria-pressed="false">Joeltech</button></div>
+                <p class="sr-only" id="filter-announcement" role="status" aria-live="polite"></p>
+                <section class="browse-group" id="characters" data-group="characters">
+            <div class="group-heading"><div><p class="section-kicker">EXPLORE THE WIKI</p><h3>Characters</h3><p>The familiar faces, friends, and things trying to end your run.</p></div><span>18 articles</span></div>
+            <div class="entry-grid"><a class="entry-card" href="mmorp.html">
+        <span class="entry-image is-art"><img class="" src="assets/mmorp.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>MMORP</strong><span>The unmistakable face at the center of the series.</span></span>
+    </a><a class="entry-card" href="squelch.html">
+        <span class="entry-image is-art"><img class="" src="assets/squelch.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Squelch</strong><span>The first enemy, and a very persistent one.</span></span>
+    </a><a class="entry-card" href="plopper.html">
+        <span class="entry-image is-art"><img class="" src="assets/plopper.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Plopper</strong><span>An iconic second-level enemy that drops from above.</span></span>
+    </a><a class="entry-card" href="threnemy.html">
+        <span class="entry-image is-art"><img class="" src="assets/threnemy.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Threnemy</strong><span>A wave of three, launched from a spinning wheel.</span></span>
+    </a><a class="entry-card" href="helper.html">
+        <span class="entry-image is-art"><img class="" src="assets/helper.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Helper</strong><span>A rare moment when running into an enemy is a good idea.</span></span>
+    </a><a class="entry-card" href="chomper.html">
+        <span class="entry-image is-art"><img class="" src="assets/chomper.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Chomper</strong><span>A patient pair with a very sudden bite.</span></span>
+    </a><a class="entry-card" href="wall.html">
+        <span class="entry-image is-art"><img class="" src="assets/wall.svg" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Wall</strong><span>A five-damage obstacle and the end of many runs.</span></span>
+    </a><a class="entry-card" href="momo.html">
+        <span class="entry-image is-art"><img class="" src="assets/momo.svg" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Momo</strong><span>A side-profile enemy hiding beyond the Wall.</span></span>
+    </a><a class="entry-card" href="prickly.html">
+        <span class="entry-image is-art"><img class="" src="assets/prickly.svg" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Prickly</strong><span>A fast-moving pursuer with a steady supply of projectiles.</span></span>
+    </a><a class="entry-card" href="derek.html">
+        <span class="entry-image is-art"><img class="" src="assets/derek.svg" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Derek</strong><span>A relaxed presence with a less relaxed projectile attack.</span></span>
+    </a><a class="entry-card" href="tennemy.html">
+        <span class="entry-image is-art"><img class="" src="assets/tennemy.svg" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Tennemy</strong><span>The original game’s formidable tenth and final enemy.</span></span>
+    </a><a class="entry-card" href="gulper.html">
+        <span class="entry-image is-art"><img class="" src="assets/gulper.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Gulper</strong><span>A slow-moving MMORP 3D enemy with two distinct variants.</span></span>
+    </a><a class="entry-card" href="toother.html">
+        <span class="entry-image is-art"><img class="" src="assets/toother.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Toother</strong><span>A faster falling relative of the Plopper.</span></span>
+    </a><a class="entry-card" href="spiker.html">
+        <span class="entry-image is-art"><img class="" src="assets/spiker.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Spiker</strong><span>A pointed MMORP 3D creature preserved in the artwork archive.</span></span>
+    </a><a class="entry-card" href="slim.html">
+        <span class="entry-image "><img class="" src="assets/slim.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Slim</strong><span>The eccentric, dangerous inhabitant of the Derelict Camp.</span></span>
+    </a><a class="entry-card" href="edina.html">
+        <span class="entry-image "><img class="" src="assets/edina.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Edina</strong><span>A beloved camp resident with a misleadingly evil name.</span></span>
+    </a><a class="entry-card" href="john-harper.html">
+        <span class="entry-image "><img class="" src="assets/john-harper.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>John Harper Tarleton</strong><span>Musician, MMORP 3D collaborator, and a figure in the lore.</span></span>
+    </a><a class="entry-card" href="orange-orange.html">
+        <span class="entry-image "><img class="" src="assets/orange-orange.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Orange Orange</strong><span>Tyler, a would-be meme with an urgent need for better Wi-Fi.</span></span>
+    </a></div>
+        </section><section class="browse-group" id="games" data-group="games">
+            <div class="group-heading"><div><p class="section-kicker">EXPLORE THE WIKI</p><h3>Games &amp; mechanics</h3><p>From the original Scratch game to the jump into three dimensions.</p></div><span>6 articles</span></div>
+            <div class="entry-grid"><a class="entry-card" href="mmorp-1.html">
+        <span class="entry-image "><img class="" src="assets/mmorp1-splash.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>MMORP</strong><span>The Scratch original: ten levels, countless projectiles, one infamous finale.</span></span>
+    </a><a class="entry-card" href="mmorp-2.html">
+        <span class="entry-image "><img class="" src="assets/mmorp2.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>MMORP 2</strong><span>The unusual middle entry in the original trilogy.</span></span>
+    </a><a class="entry-card" href="mmorp-3.html">
+        <span class="entry-image "><img class="" src="assets/mmorp3.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>MMORP 3</strong><span>The unfinished Scratch sequel that introduced mouse movement.</span></span>
+    </a><a class="entry-card" href="mmorp-3d.html">
+        <span class="entry-image "><img class="" src="assets/mmorp3d.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>MMORP 3D</strong><span>The original’s bullet-hell chaos, rebuilt in Unreal Engine 5.</span></span>
+    </a><a class="entry-card" href="kafkaesque.html">
+        <span class="entry-image "><img class="" src="assets/kafkaesque.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Kafkaesque Game</strong><span>A sprawling experiment in terrain, vehicles, building, and fracking.</span></span>
+    </a><a class="entry-card" href="evtest.html">
+        <span class="entry-image "><img class="" src="assets/mmorp1-gameplay.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Evtest</strong><span>The original game’s passcode-powered developer menu.</span></span>
+    </a></div>
+        </section><section class="browse-group" id="world" data-group="world">
+            <div class="group-heading"><div><p class="section-kicker">EXPLORE THE WIKI</p><h3>World &amp; lore</h3><p>Places, stories, and the peculiar geography surrounding MMORP.</p></div><span>5 articles</span></div>
+            <div class="entry-grid"><a class="entry-card" href="derelict-camp.html">
+        <span class="entry-image "><img class="" src="assets/derelict-camp.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Derelict Camp</strong><span>A not entirely welcoming camp at the heart of the lore.</span></span>
+    </a><a class="entry-card" href="darna.html">
+        <span class="entry-image is-art"><img class="" src="assets/darna.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Darna</strong><span>The base of a clan with designs on the Derelict Camp.</span></span>
+    </a><a class="entry-card" href="archipelago.html">
+        <span class="entry-image "><img class="" src="assets/archipelago.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Joeltech Archipelago</strong><span>A volcanic island headquarters in the South Pacific.</span></span>
+    </a><a class="entry-card" href="mobile-alabama.html">
+        <span class="entry-image "><img class="" src="assets/mobile.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Mobile, Alabama</strong><span>A celebrated destination, especially for one particular Moe’s.</span></span>
+    </a><a class="entry-card" href="german-story.html">
+        <span class="entry-image "><img class="" src="assets/world-map.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>The German Story</strong><span>MMORP, Orange Orange, a dangerous camp, and the search for Wi-Fi.</span></span>
+    </a></div>
+        </section><section class="browse-group" id="joeltech" data-group="joeltech">
+            <div class="group-heading"><div><p class="section-kicker">EXPLORE THE WIKI</p><h3>Joeltech</h3><p>The company, its headquarters, and its extremely ambitious products.</p></div><span>3 articles</span></div>
+            <div class="entry-grid"><a class="entry-card" href="joeltech.html">
+        <span class="entry-image "><img class="" src="assets/joeltech-logo.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Joeltech</strong><span>A fictional company with big ideas and an island headquarters.</span></span>
+    </a><a class="entry-card" href="gale.html">
+        <span class="entry-image "><img class="" src="assets/gale.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Joeltech Gale</strong><span>A twincharged V8 supercar with an even more ambitious Sprat trim.</span></span>
+    </a><a class="entry-card" href="joeltech-phone.html">
+        <span class="entry-image "><img class="" src="assets/joeltech-phone.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Joeltech Phone</strong><span>An outrageously expensive phone with an equally outrageous chip.</span></span>
+    </a></div>
+        </section>
+            </section>
+        </div>
+    </div>
+    </main>
+<footer class="wiki-footer">
+    <div class="container wiki-footer-inner">
+        <div><a class="footer-brand" href="index.html">MMORP <span>WIKI</span></a><p>A little corner of the MMORP universe.</p></div>
+        <div class="footer-links"><a href="../games.html">More games</a><a href="../index.html">Joel Weikel</a><a href="#top">Back to top</a></div>
+    </div>
+</footer>
+</body>
+</html>

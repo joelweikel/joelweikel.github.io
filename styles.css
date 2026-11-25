@@ -284,3 +284,17 @@ footer { border-top: 1px solid var(--line); padding: 30px 0; }
 
 
 .crystal-controls { margin-bottom: 18px; }
+
+/* MMORP Wiki invitation */
+.wiki-invite { display: grid; grid-template-columns: 1fr minmax(180px, .7fr); gap: 35px; align-items: center; overflow: hidden; background: #dcece4; padding: 38px 50px; }
+.wiki-invite .eyebrow { margin-bottom: 17px; color: #5f7971; }
+.wiki-invite h2 { margin-bottom: 12px; }
+.wiki-invite p:not(.eyebrow) { max-width: 540px; font-size: 19px; }
+.wiki-invite-art { height: 230px; display: flex; align-items: center; justify-content: center; }
+.wiki-invite-art img { max-height: 220px; max-width: 100%; object-fit: contain; }
+.wiki-game-link { margin-left: 18px; }
+@media (max-width:700px) {
+    .wiki-invite { grid-template-columns: 1fr; gap: 10px; padding: 32px 28px; }
+    .wiki-invite-art { height: 170px; }
+    .wiki-invite-art img { max-height: 165px; }
+}

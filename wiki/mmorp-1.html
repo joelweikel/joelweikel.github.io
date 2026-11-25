@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The Scratch original: ten levels, countless projectiles, one infamous finale.">
+<meta name="theme-color" content="#0a3d62">
+<title>MMORP | MMORP Wiki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="wiki.css">
+<script src="search-data.js" defer></script>
+<script src="wiki.js" defer></script>
+<noscript><style>@media(max-width:700px){header nav{display:block;position:static}header nav ul{display:flex;flex-wrap:wrap;gap:5px 20px;padding:0 0 20px}header nav a{font-size:12px}.header-inner{flex-wrap:wrap;padding-top:15px}.menu-toggle{display:none}}</style></noscript>
+</head>
+<body class="wiki-page" id="top">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="header-placeholder">
+        <header>
+            <div class="container header-inner">
+                <a class="site-title" href="../index.html">Joel Weikel<span class="title-dot">.</span></a>
+                <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">Menu <span aria-hidden="true">+</span></button>
+                <nav id="mainNav" aria-label="Main navigation">
+                    <ul>
+                        <li><a href="../index.html">About</a></li>
+                        <li><a href="../janthina-drone.html">Drone</a></li>
+                        <li><a href="../metals.html">Foundry</a></li>
+                        <li><a href="../games.html">Games</a></li>
+                        <li><a href="../projects.html">More projects</a></li>
+                        <li><a href="../Resume.pdf">Résumé ↗</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </div>
+<div class="wiki-bar">
+        <div class="container wiki-bar-inner">
+            <a class="wiki-wordmark" href="index.html" aria-label="MMORP Wiki home"><span>MMORP</span><small>THE WIKI</small></a>
+            <nav class="wiki-topnav" aria-label="Wiki navigation">
+                <a href="index.html#characters">Characters</a>
+                <a href="index.html#games">Games</a>
+                <a href="index.html#world">World</a>
+                <a href="index.html#joeltech">Joeltech</a>
+            </nav>
+            <div class="wiki-search">
+                <form id="wiki-search-form" role="search" action="index.html#browse">
+                    <label class="sr-only" for="wiki-search-input">Search the MMORP Wiki</label>
+                    <span class="search-icon" aria-hidden="true"></span>
+                    <input id="wiki-search-input" type="search" placeholder="Search the wiki" autocomplete="off" aria-controls="search-results" aria-describedby="search-help">
+                    <button type="submit" class="search-submit">Search</button>
+                </form>
+                <div class="search-results" id="search-results" hidden></div>
+                <span class="sr-only" id="search-help">Search articles by name or keyword. Results appear below the search field.</span>
+                <span class="sr-only" id="search-announcement" role="status" aria-live="polite"></span>
+            </div>
+        </div>
+    </div>
+<main id="main" class="article-page">
+    <div class="container wiki-layout">
+        <aside class="wiki-sidebar" aria-label="Explore the wiki">
+        <p class="rail-heading">The MMORP Wiki</p>
+        <a class="rail-home" href="index.html">Wiki home</a>
+        <p class="rail-heading">Explore</p>
+        <ul><li><a href="index.html#characters">Characters <span>18</span></a></li><li><a href="index.html#games">Games &amp; mechanics <span>6</span></a></li><li><a href="index.html#world">World &amp; lore <span>5</span></a></li><li><a href="index.html#joeltech">Joeltech <span>3</span></a></li></ul>
+        <div class="rail-note"><span>THE ORIGINAL</span><p>Ten levels. A lot of projectiles.</p><a href="mmorp-1.html">Explore MMORP</a></div>
+    </aside>
+        <div class="wiki-content article-content">
+            <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">MMORP Wiki</a><span>/</span><a href="index.html#games">Games &amp; mechanics</a><span>/</span><span aria-current="page">MMORP</span></nav>
+            <div class="article-heading"><p class="section-kicker">Games &amp; mechanics</p><h1>MMORP</h1><p class="article-lead">The Scratch original: ten levels, countless projectiles, one infamous finale.</p></div>
+            <div class="article-grid">
+                <div class="article-copy">
+                    <nav class="toc" aria-label="Contents"><h2>On this page</h2><ol><li><a href="#overview">Overview</a></li><li><a href="#how-to-play">How to play</a></li><li><a href="#evtest-and-development">Evtest and development</a></li><li><a href="#enemy-order">Enemy order</a></li><li><a href="#gallery">Gallery</a></li></ol></nav>
+                    <section class="article-section" id="overview"><h2>Overview</h2><p>The original MMORP began the series as a Scratch game about dodging projectiles through ten enemy levels. It became popular to play in class and inspired copycats and spin-offs.</p><p>The final <a href="tennemy.html">Tennemy</a> level became notorious for its difficulty. The creator’s notes describe a win screen that was effectively unreachable, even with developer tools.</p></section><section class="article-section" id="how-to-play"><h2>How to play</h2><p>Move MMORP with WASD or the arrow keys and dodge the enemies. Press B to turn randomly. The character can wrap around the edges of the screen.</p><p>The game may contain flashing lights.</p></section><section class="article-section" id="evtest-and-development"><h2>Evtest and development</h2><p><a href="evtest.html">Evtest</a> opens a passcode prompt for developer modes and cheats. The original Scratch notes list billy for 100 lives and EZ for easy mode; yes enables a health-regenerating developer mode.</p><p>The project’s code uses several different approaches to enemy behavior. Its experimental construction is part of the original’s history.</p></section><section class="article-section" id="enemy-order"><h2>Enemy order</h2><p>The original ten levels are <a href="squelch.html">Squelch</a>, <a href="plopper.html">Plopper</a>, <a href="threnemy.html">Threnemy</a>, <a href="helper.html">Helper</a>, <a href="chomper.html">Chomper</a>, <a href="wall.html">Wall</a>, <a href="momo.html">Momo</a>, <a href="prickly.html">Prickly</a>, <a href="derek.html">Derek</a>, and <a href="tennemy.html">Tennemy</a>.</p></section><section class="article-section article-gallery" id="gallery"><h2>Gallery</h2><div class="gallery-grid"><figure><a href="assets/mmorp1-gameplay.webp" target="_blank" rel="noopener" aria-label="Open image: A scene from the original game."><img class="" src="assets/mmorp1-gameplay.webp" alt="A scene from the original game." loading="lazy" decoding="async"></a><figcaption>A scene from the original game.</figcaption></figure><figure><a href="assets/mmorp1-death.webp" target="_blank" rel="noopener" aria-label="Open image: The original death screen."><img class="" src="assets/mmorp1-death.webp" alt="The original death screen." loading="lazy" decoding="async"></a><figcaption>The original death screen.</figcaption></figure><figure><a href="assets/mmorp1-win.webp" target="_blank" rel="noopener" aria-label="Open image: The elusive win screen."><img class="" src="assets/mmorp1-win.webp" alt="The elusive win screen." loading="lazy" decoding="async"></a><figcaption>The elusive win screen.</figcaption></figure></div></section><div class="article-actions"><a class="article-action" href="https://scratch.mit.edu/projects/612511851/" target="_blank" rel="noopener noreferrer">Play on Scratch</a></div>
+                </div>
+                <aside class="infobox" aria-label="MMORP facts">
+        <h2>MMORP</h2>
+        <div class="infobox-image "><img class="" src="assets/mmorp1-splash.webp" alt="MMORP" decoding="async"></div>
+        <p class="infobox-caption">Games &amp; mechanics</p>
+        <dl><div><dt>Released</dt><dd>December 2021</dd></div><div><dt>Engine</dt><dd>Scratch</dd></div><div><dt>Levels</dt><dd>10</dd></div><div><dt>Controls</dt><dd>WASD or arrow keys</dd></div></dl>
+    </aside>
+            </div>
+            <section class="related-section"><p class="section-kicker">KEEP EXPLORING</p><h2>Related articles</h2><div class="entry-grid"><a class="entry-card" href="mmorp.html">
+        <span class="entry-image is-art"><img class="" src="assets/mmorp.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>MMORP</strong><span>The unmistakable face at the center of the series.</span></span>
+    </a><a class="entry-card" href="evtest.html">
+        <span class="entry-image "><img class="" src="assets/mmorp1-gameplay.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>Evtest</strong><span>The original game’s passcode-powered developer menu.</span></span>
+    </a><a class="entry-card" href="mmorp-3.html">
+        <span class="entry-image "><img class="" src="assets/mmorp3.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>MMORP 3</strong><span>The unfinished Scratch sequel that introduced mouse movement.</span></span>
+    </a><a class="entry-card" href="mmorp-3d.html">
+        <span class="entry-image "><img class="" src="assets/mmorp3d.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="entry-copy"><strong>MMORP 3D</strong><span>The original’s bullet-hell chaos, rebuilt in Unreal Engine 5.</span></span>
+    </a></div></section>
+        </div>
+    </div>
+    </main>
+<footer class="wiki-footer">
+    <div class="container wiki-footer-inner">
+        <div><a class="footer-brand" href="index.html">MMORP <span>WIKI</span></a><p>A little corner of the MMORP universe.</p></div>
+        <div class="footer-links"><a href="../games.html">More games</a><a href="../index.html">Joel Weikel</a><a href="#top">Back to top</a></div>
+    </div>
+</footer>
+</body>
+</html>
