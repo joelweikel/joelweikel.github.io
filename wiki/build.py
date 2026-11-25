@@ -137,6 +137,21 @@ def article_card(item):
         <span class="entry-copy"><strong>{e(item["title"])}</strong><span>{e(item["summary"])}</span></span>
     </a>'''
 
+GAME_ENEMIES = {
+        "mmorp-1": [
+            ("squelch", "squelch-classic.svg"), ("plopper", "plopper-classic.svg"),
+            ("threnemy", "threnemy-classic.svg"), ("helper", "helper-classic.svg"),
+            ("chomper", "chomper-open.svg"), ("wall", "wall.svg"), ("momo", "momo.svg"),
+            ("prickly", "prickly.svg"), ("derek", "derek.svg"), ("tennemy", "tennemy.svg"),
+        ],
+        "mmorp-3d": [
+            ("squelch", "squelch.webp"), ("plopper", "plopper.webp"),
+            ("threnemy", "threnemy.webp"), ("helper", "helper.webp"),
+            ("chomper", "chomper.webp"), ("gulper", "gulper.webp"),
+            ("toother", "toother.webp"), ("spiker", "spiker.webp"),
+        ],
+}
+
 def home():
     categories = []
     for slug, (name, desc) in CATEGORIES.items():
@@ -145,12 +160,7 @@ def home():
             <div class="group-heading"><div><p class="section-kicker">EXPLORE THE WIKI</p><h3>{e(name)}</h3><p>{e(desc)}</p></div><span>{COUNTS[slug]} articles</span></div>
             <div class="entry-grid">{cards}</div>
         </section>''')
-    levels = [
-        ("squelch", "Squelch"), ("plopper", "Plopper"), ("threnemy", "Threnemy"),
-        ("helper", "Helper"), ("chomper", "Chomper"), ("wall", "Wall"),
-        ("momo", "Momo"), ("prickly", "Prickly"), ("derek", "Derek"), ("tennemy", "Tennemy"),
-    ]
-    level_links = "".join(f'<li><a href="{slug}.html"><span>{n:02}</span>{e(name)}</a></li>' for n, (slug, name) in enumerate(levels, 1))
+    level_links = "".join(f'<li><a href="{slug}.html"><span>{n:02}</span>{e(BY_SLUG[slug]["title"])}</a></li>' for n, (slug, _) in enumerate(GAME_ENEMIES["mmorp-1"], 1))
     filters = '<button type="button" data-filter="all" aria-pressed="true">All articles</button>' + "".join(
         f'<button type="button" data-filter="{slug}" aria-pressed="false">{e(name)}</button>'
         for slug, (name, _) in CATEGORIES.items()
@@ -230,6 +240,10 @@ def article_page(item):
             paragraphs += f"<ul>{bullets}</ul>"
         sections.append(f'<section class="article-section" id="{section_id(section["title"])}"><h2>{e(section["title"])}</h2>{paragraphs}</section>')
     toc_links = "".join(f'<li><a href="#{section_id(section["title"])}">{e(section["title"])}</a></li>' for section in item["sections"])
+    if item["slug"] in GAME_ENEMIES:
+        toc_links += '<li><a href="#enemies">Enemies</a></li>'
+        cards = "".join(article_card({**BY_SLUG[slug], "image": filename, "art": True}) for slug, filename in GAME_ENEMIES[item["slug"]])
+        sections.append(f'<section class="article-section" id="enemies"><h2>Enemies</h2><div class="entry-grid">{cards}</div></section>')
     if item["gallery"]:
         toc_links += '<li><a href="#gallery">Gallery</a></li>'
         figures = "".join(f'''<figure><a href="{asset(filename)}" target="_blank" rel="noopener" aria-label="Open image: {e(caption)}">{image(filename, caption)}</a><figcaption>{e(caption)}</figcaption></figure>''' for filename, caption in item["gallery"])

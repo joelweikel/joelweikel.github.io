@@ -140,19 +140,20 @@ add("toother", "Toother", "characters",
     facts=[("Appears in", "[[mmorp-3d|MMORP 3D]] infinite mode"), ("Movement", "Falls at twice the Plopper’s speed")],
     sections=[
         section("Behavior", "Toother is a falling enemy found in MMORP 3D’s infinite mode. It resembles the [[plopper|Plopper]], but falls twice as fast."),
-        section("Relationships", "Toother is related to the Stabber but does not like it. Toother is friends with the Ploppers."),
-    ], related=["plopper", "mmorp-3d"])
+        section("Relationships", "Toother is related to the [[spiker|Spiker]] but does not like it. Toother is friends with the Ploppers."),
+    ], related=["plopper", "spiker", "mmorp-3d"])
 add("spiker", "Spiker", "characters",
-    "A pointed MMORP 3D creature preserved in the artwork archive.",
+    "A fat, slow-moving creature that leaves Squelch eggs in its trail.",
     "spiker.webp", art=True,
-    facts=[("Known from", "MMORP 3D artwork"), ("Archive status", "Description to be expanded")],
+    facts=[("Appears in", "[[mmorp-3d|MMORP 3D]]"), ("Movement", "Very slow, with difficulty turning")],
     sections=[
-        section("About", "The source archive includes MMORP 3D renders of Spiker, including a top view. Its accompanying description is empty, so its behavior and appearances have not yet been documented here."),
+        section("Behavior", "Spikers are fat creatures that travel very slowly and have difficulty turning. They lay eggs in their trail that grow into [[squelch|Squelches]]."),
+        section("Relationships", "Spikers are friends with [[orange-orange|Orange Orange]]."),
     ], gallery=[("spiker-top.webp", "Spiker viewed from above.")],
-    related=["mmorp-3d"])
+    related=["squelch", "orange-orange", "toother", "mmorp-3d"])
 add("slim", "Slim", "characters",
     "The eccentric, dangerous inhabitant of the Derelict Camp.",
-    "slim.webp",
+    "slim-photo.jpg",
     facts=[("Home", "[[derelict-camp|Derelict Camp]]"), ("Related to", "[[edina|Edina]]"), ("Reputation", "Dangerous and untrustworthy")],
     sections=[
         section("About", "Slim is the main inhabitant of the [[derelict-camp|Derelict Camp]] and is described as eccentric, dangerous, and inclined to consume everything in his path. He effectively runs the camp and sometimes wears shades."),
