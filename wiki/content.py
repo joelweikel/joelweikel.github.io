@@ -305,7 +305,7 @@ add("german-story", "The German Story", "world",
     links=[("Read the original story (PDF)", "assets/german-story.pdf")])
 
 add("joeltech", "Joeltech", "joeltech",
-    "A fictional company with big ideas and an island headquarters.",
+    "A company with big ideas and an island headquarters.",
     "joeltech-logo.webp",
     facts=[("Headquarters", "[[archipelago|Joeltech Archipelago]]"), ("Products", "[[gale|Gale]], [[joeltech-phone|Joeltech Phone]], [[mmorp-1|MMORP]]")],
     sections=[
